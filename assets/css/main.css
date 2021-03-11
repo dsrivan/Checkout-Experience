@@ -1,0 +1,124 @@
+/* General Colors - BEGIN */
+:root {
+  --Primary: #0d6efd;
+  --PrimaryCustom: #e2eeff;
+  --PrimaryCustom2: #c3dbff;
+  --LightCustom: #ffffffc4;
+}
+/* Bootstrap colors - END */
+
+/* General Configuration - BEGIN */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  z-index: 1;
+  scroll-behavior: smooth;
+}
+/* General Configuration - END */
+
+/* Custom Classes - BEGIN  */
+.rounded-15 {
+  border-radius: 15px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.bg-primaryCustom {
+  background-color: var(--PrimaryCustom);
+}
+
+.bg-LightCustom {
+  background-color: var(--LightCustom);
+}
+
+.transition05 {
+  transition: all 0.5s ease-in;
+}
+
+.transition02 {
+  transition: all 0.2s ease-in;
+}
+
+.paymentOptionChosen,
+.paymentOption:hover a {
+  border-color: var(--Primary) !important;
+  background-color: #f0f8ff;
+}
+
+.paymentOption a.paymentOptionChosen .paymentArrowRight,
+.paymentOption:hover .paymentArrowRight {
+  right: 10% !important;
+}
+
+.paymentOption a.paymentOptionChosen .paymentIcon,
+.paymentOption:hover a .paymentIcon {
+  background-color: var(--PrimaryCustom2);
+}
+
+.right20PNeg {
+  right: -20%;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.sectionLoading {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: fixed !important;
+  z-index: 2;
+}
+
+.scale1 {
+  transform: scale(1);
+}
+
+.scale0 {
+  transform: scale(0);
+}
+
+.heightAuto {
+  min-height: calc(100vh - 248px);
+}
+
+.toggleScalePayment {
+  animation: 0.7s toggleScalePayment linear;
+}
+
+.pt-10p {
+  padding-top: 10vh;
+}
+
+.wh22px {
+  height: 22px;
+  width: 22px;
+}
+/* Custom Classes - END */
+
+/* Animations - BEGIN */
+@keyframes toggleScalePayment {
+  0% {
+    transform: scale(0);
+  }
+  25% {
+    transform: scale(1.4);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/* Animations - END */

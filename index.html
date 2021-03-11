@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout Experience</title>
+
+    <!-- Bootstrap v5 CSS -->
+    <link rel="stylesheet" href="assets/lib/bootstrap-5.0.0-beta2-dist/css/bootstrap.min.css">
+
+    <!-- Font Awesome 5.15.2 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+    <!-- Main CSS  -->
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body class="position-relative">
+
+    <section class="sectionLoading d-none position-absolute">
+        <div class="w-100 h100 bg-LightCustom text-primary text-center py-4 d-flex flex-column justify-content-center align-items-center w-100 h-100">
+            <i class="fas fa-spinner fa-spin fa-2x text-primary mb-1"></i>
+            <h3>
+                Loading
+            </h3>
+        </div>
+    </section>
+
+    <!-- HEADER BEGIN -->
+    <header>
+        <nav class="navbar navbar-primary bg-primary">
+            <div class="container bg-primary">
+                <a class="navbar-brand text-light" href="#">
+                    <img src="assets/img/bootstrap-logo.svg" alt="" width="30" height="24">
+                    Bootstrap
+                </a>
+                <span class="text-light py-4">
+                    Checkout Experience
+                </span>
+            </div>
+        </nav>
+    </header>
+    <!-- HEADER END -->
+
+    <!-- MAIN BEGIN  -->
+    <main>
+
+        <section>
+            <div class="container">
+                <div class="row my-4 bg-primaryCustom ">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb m-0 py-2">
+                            <li class="breadcrumb-item">
+                                <a href="/">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                Checkout
+                            </li>
+                        </ol>
+                      </nav>
+                </div>
+            </div>
+        </section>
+
+        <section class="sectionOrderDetails pt-5 pb-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 mb-5">
+                        <h2>Checkout Experience</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="mb-4">Order details</h2>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr class="text-uppercase">
+                                        <th scope="col">#</th>
+                                        <th scope="col">DESCRIPTION</th>
+                                        <th scope="col">Un (R$)</th>
+                                        <th scope="col">QTY</th>
+                                        <th scope="col">Tot (R$)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>
+                                            <span class="me-3">
+                                                <img src="assets/img/camiseta.png" width="32" height="32" alt="IMG">
+                                            </span>
+                                            <span class="d-inline-block">
+                                                Product One
+                                            </span>
+                                        </td>
+                                        <td>1,99</td>
+                                        <td>10</td>
+                                        <td>19,90</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>
+                                            <span class="me-3">
+                                                <img src="assets/img/calca.png" width="32" height="32" alt="IMG">
+                                            </span>
+                                            <span class="d-inline-block">
+                                                Product Two
+                                            </span>
+                                        </td>
+                                        <td>9,99</td>
+                                        <td>5</td>
+                                        <td>49,95</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>
+                                            <span class="me-3">
+                                                <img src="assets/img/bone.png" width="32" height="32" alt="IMG">
+                                            </span>
+                                            <span class="d-inline-block">
+                                                Product Three
+                                            </span>
+                                        </td>
+                                        <td>2,49</td>
+                                        <td>2</td>
+                                        <td>4,98</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr class="fw-bold">
+                                        <td colspan="4">
+                                            TOTAL R$
+                                        </td>
+                                        <td>
+                                            34,87
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- div botões INICIO -->
+        <section class="sectionBtns transition02 mt-3 mb-4">
+            <div class="container">
+                <div class="row transition05 justify-content-end">
+                    <div class="divKeepShopping transition05 text-center col-6 p-2 my-3">
+                        <a class="px-4 py-5 mb-4 border rounded-3 w-100 d-inline-block bg-secondary text-decoration-none" style="cursor: pointer;">
+                            <i class="fas fa-arrow-left text-light me-2"></i>                            
+                            <span class="me-2 text-light">
+                                Keep Shopping
+                            </span>
+                        </a>
+                    </div>
+                    <div class="divCheckout transition05 text-center col-6 p-2 my-3">
+                        <a href="#sectionStage" onclick="fnChekout();" class="btnCheckout transition05 px-4 py-4 py-5 rounded-3 w-100 d-inline-block bg-primary text-decoration-none" style="cursor: pointer;">
+                            <span class="me-2 text-light">
+                                Got to Checkout
+                            </span>
+                            <i class="fas fa-money-bill-wave text-light"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- div botões FIM -->
+
+        <!-- div etapas INICIO  -->
+        <section class="sectionStage transition02 d-none opacity-0">
+            <div class="container mb-5 text-center">
+                <div class="row">
+                    <div id="PaymentMethod" class="col-6 d-flex justify-content-center align-items-center" title="Step Concluded">
+                        <span class="spanBadgePaymentMethod badge bg-secondary me-2">
+                            1
+                        </span>
+                        <span class="spanBadgePaymentMethodCheck wh22px badge bg-success me-2 d-none d-flex justify-content-center align-items-center">                           
+                            <i class="fas fa-check text-light"></i>
+                        </span>
+                        <span id="sectionStage">
+                            Choose a payment method
+                        </span>
+                    </div>
+                    <div id="PaymentDetails" class="col-6 d-flex justify-content-center align-items-center" title="Step Pendant">
+                        <span class="spanBadgePaymentDetails badge bg-secondary me-2">
+                            2
+                        </span>
+                        <span class="spanBadgePaymentDetailsCheck wh22px badge bg-success me-2 d-none d-flex justify-content-center align-items-center">                        
+                            <i class="fas fa-check text-light"></i>
+                        </span>
+                        <span>
+                            Payment details
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- div etapas FIM -->
+        
+        <!-- div métodos pagamento INICIO -->
+        <section class="sectionPaymentMethods transition02 d-none opacity-0 mb-5">
+            <div class="container">
+                <div class="row position-relative mb-5">
+                    <div class="paymentOption fw-bold col-12 col-md-6 my-3">
+                        <a id="CreditCard" href="#AddressSection" data-PaymentMethod="CreditCard" class="p-3 border border-2 rounded-15 d-inline-block w-100 text-decoration-none cursor-pointer" onclick="fnPaymentOptionChosen(this);">
+                            <div class="my-4 d-flex align-items-center position-relative overflow-hidden">
+                                <div class="ms-5 me-3">
+                                    <i class="paymentIcon far fa-credit-card fa-2x text-primary p-3 rounded-3 bg-primaryCustom"></i>
+                                </div>
+                                <div class="text-dark me-3">
+                                    Credit card
+                                </div>
+                                <div class="paymentArrowRight position-absolute transition02 right20PNeg">
+                                    <i class="fas fa-arrow-right fa-1x text-primary"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="paymentOption fw-bold col-12 col-md-6 my-3">
+                        <a id="InternetBanking" data-PaymentMethod="InternetBanking" class="p-3 border border-2 rounded-15 d-inline-block w-100 text-decoration-none cursor-pointer" onclick="fnPaymentOptionChosen(this);">
+                            <div class="my-4 d-flex align-items-center position-relative overflow-hidden">
+                                <div class="ms-5 me-3">
+                                    <i class="paymentIcon fas fa-university fa-2x text-primary p-3 rounded-3 bg-primaryCustom"></i>
+                                </div>
+                                <div class="text-dark">
+                                    Internet banking
+                                </div>
+                                <div class="paymentArrowRight position-absolute transition02 right20PNeg">
+                                    <i class="fas fa-arrow-right fa-1x text-primary"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="paymentOption fw-bold col-12 col-md-6 my-3">
+                        <a id="Paypal" data-PaymentMethod="Paypal" class="p-3 border border-2 rounded-15 d-inline-block w-100 text-decoration-none cursor-pointer" onclick="fnPaymentOptionChosen(this);">
+                            <div class="my-4 d-flex align-items-center position-relative overflow-hidden">
+                                <div class="ms-5 me-3">
+                                    <i class="paymentIcon fab fa-paypal fa-2x text-primary p-3 rounded-3 bg-primaryCustom"></i>
+                                </div>
+                                <div class="text-dark">
+                                    Paypal
+                                </div>
+                                <div class="paymentArrowRight position-absolute transition02 right20PNeg">
+                                    <i class="fas fa-arrow-right fa-1x text-primary"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="paymentOption fw-bold col-12 col-md-6 my-3">
+                        <a id="BitcoinWallet" data-PaymentMethod="BitcoinWallet" class="p-3 border border-2 rounded-15 d-inline-block w-100 text-decoration-none cursor-pointer" onclick="fnPaymentOptionChosen(this);">
+                            <div class="my-4 d-flex align-items-center position-relative overflow-hidden">
+                                <div class="ms-5 me-3">
+                                    <i class="paymentIcon fab fa-bitcoin fa-2x text-primary p-3 rounded-3 bg-primaryCustom"></i>
+                                </div>
+                                <div class="text-dark">
+                                    Bitcoin wallet
+                                </div>
+                                <div class="paymentArrowRight position-absolute transition02 right20PNeg">
+                                    <i class="fas fa-arrow-right fa-1x text-primary"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>        
+        <!-- div métodos pagamento FIM -->
+
+        <!-- div informações de pagamento INICIO -->
+        <section class="sectionPaymentInfos transition02 mb-5 d-none opacity-0">
+            <div class="container my-5">
+                <div class="row">
+                    <div class="col-12 text-center py-3 mt-2 mb-4 bg-primaryCustom text-primary">
+                        Payment Method Selected: <span class="fw-bold">Credit Card</span>
+                    </div>
+                </div>
+                <div class="row transition05">
+                    <div class="col-12 col-md-6 px-5">
+                        <h4 id="AddressSection" class="mb-3 fw-bold text-primary">Address</h4>
+                        <form class="needs-validation" novalidate>
+                            <div class="row g-3">                
+                                <div class="col-12">
+                                <label for="fullName" class="form-label">
+                                    Full name
+                                </label>
+                                <input type="text" class="form-control" id="fullName">
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="email1" class="form-label">
+                                        Email
+                                    </label>
+                                    <div class="input-group">
+                                        <input id="email1" type="text" class="form-control" maxlength="20">
+                                        <span class="input-group-text" id="basic-addon1">@</span>
+                                        <input id="email2" type="text" class="form-control" maxlength="30">
+                                    </div>
+                                </div>
+                    
+                                <div class="col-12">
+                                <label for="address" class="form-label">
+                                    Address
+                                </label>
+                                <input type="text" class="form-control" id="address">
+                                </div>
+                    
+                                <div class="col-md-5">
+                                <label for="country" class="form-label">
+                                    Country
+                                </label>
+                                <select class="form-select" id="country">
+                                    <option value="">Options</option>
+                                </select>
+                                </div>
+                    
+                                <div class="col-md-4">
+                                <label for="state" class="form-label">
+                                    State
+                                </label>
+                                <select class="form-select" id="state">
+                                    <option value="">Options</option>
+                                </select>
+                                </div>
+                    
+                                <div class="col-md-3">
+                                    <label for="zip" class="form-label">
+                                        Zip
+                                    </label>
+                                    <input type="text" class="form-control" id="zip">
+                                </div>
+                            </div>
+
+                            <hr class="my-4">
+
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="checkSameAddress">
+                                <label class="form-check-label" for="checkSameAddress">
+                                    Shipping address is the same as my billing address
+                                </label>
+                            </div>
+                        <!-- </form> -->
+                    </div>
+                    <div class="col-12 col-md-6 px-5">
+                        <h4 class="mb-3 fw-bold text-primary">
+                            Card Information
+                        </h4>
+                        <div class="row gy-3">
+                            <div class="col-12">
+                                <label for="creditCardFullName" class="form-label">
+                                    Full name as displayed on card
+                                </label>
+                                <input type="text" class="form-control" id="creditCardFullName">
+                            </div>
+
+                            <div class="col-12">
+                                <label for="creditCardNumber1" class="form-label">
+                                    Credit card number
+                                </label>
+                                <div class="input-group">
+                                    <input id="creditCardNumber1" type="text" class="form-control" maxlength="4">
+                                    <input id="creditCardNumber2" type="text" class="form-control" maxlength="4">
+                                    <input id="creditCardNumber3" type="text" class="form-control" maxlength="4">
+                                    <input id="creditCardNumber4" type="text" class="form-control" maxlength="4">
+                                </div>
+                            </div>
+                
+                            <div class="col-6">
+                                <label for="CreditCardExpiration" class="form-label">
+                                    Expiration
+                                </label>
+                                <input type="text" class="form-control" id="CreditCardExpiration">
+                            </div>
+                
+                            <div class="col-6">
+                                <label for="CreditCardCVV" class="form-label">
+                                    CVV
+                                </label>
+                                <input type="text" class="form-control" id="CreditCardCVV">
+                            </div>
+
+                            <hr class="my-4">
+                
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="checkSaveInfo">
+                                <label class="form-check-label" for="checkSaveInfo">
+                                    Save this information for next time
+                                </label>
+                            </div>
+
+                        </div>                
+                    </div>
+                    <div class="col-12 px-5 text-center">
+                        <!-- <button class="w-50 btn btnprimary btn-lg mt-5" type="submit"> -->
+                        <button class="w-50 btn btn-primary btn-lg mt-5" type="button" onclick="submitForm();">
+                            Pay
+                        </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- div informações de pagamento FIM -->
+
+        <!-- div sucesso na transação INICIO -->
+        <section class="sectionSuccessPayment transition02 heightAuto scale1 scale0 w-100 d-none d-flex justify-content-center pt-10p">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-dark text-center py-4">
+                        <i class="fas fa-check text-success fa-3x mb-3"></i>
+                        <h3>
+                            Payment done!
+                        </h3>
+                        <h5>
+                            The transaction was successful!
+                        </h5>
+                        <a href="#" onclick="fnReloadPage();" class="btn btn-primary d-inline-block mt-5">Great!</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- div sucesso na transação FIM -->
+        
+    </main>
+    <!-- MAIN END  -->
+
+    <!-- FOOTER BEGIN -->
+    <footer class="py-4 bg-dark">
+        <div class="container">
+            <div class="row">
+                <span class="text-muted text-center">Developed by <a href="https://github.com/dsrivan">Ivan Rosa</a>.</span>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER END -->
+    
+    <!-- Bootstrap v5 JS -->
+    <script type="text/javascript" src="assets/lib/bootstrap-5.0.0-beta2-dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Main JS -->
+    <script type="text/javascript" src="assets/js/main.js"></script>
+</body>
+</html>
