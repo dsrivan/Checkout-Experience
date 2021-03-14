@@ -16,7 +16,7 @@
     <!-- MAIN CSS  -->
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body class="position-relative">
+<body class="position-relative h-100">
 
     <!-- 'LOADING' SECTION (FULL SCREEN) - BEGIN -->
     <section class="sectionLoading d-none position-absolute">
@@ -97,7 +97,7 @@
                                 </thead>
                                 <tbody>
                                     <tr class="trProd_1">
-                                        <th scope="row">
+                                        <th class="thCountProd" scope="row">
                                             <span class="me-2">
                                                 1
                                             </span>
@@ -126,7 +126,7 @@
                                         </td>
                                     </tr>
                                     <tr class="trProd_2">
-                                        <th scope="row">
+                                        <th class="thCountProd" scope="row">
                                             <span class="me-2">
                                                 2
                                             </span>
@@ -155,7 +155,7 @@
                                         </td>
                                     </tr>
                                     <tr class="trProd_3">
-                                        <th scope="row">                                            
+                                        <th class="thCountProd" scope="row">                                            
                                             <span class="me-2">
                                                 3
                                             </span>
@@ -184,13 +184,16 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                                <tfoot class="bg-dark text-light fs-5">
+                                <tfoot class="bg-secondary text-light fs-5">
                                     <tr class="fw-bold">
                                         <td colspan="4">
                                             TOTAL
                                         </td>
-                                        <td class="tdTotal">
-                                            $ <span>0.00</span>
+                                        <td class="tdTotal d-flex">
+                                            $ 
+                                            <span class="ms-1">
+                                                0.00
+                                            </span>
                                         </td>
                                     </tr>
                                 </tfoot>
@@ -203,23 +206,23 @@
         <!-- ORDER DETAILS SECTION - END  -->
 
         <!-- MAIN BUTTONS SECTION - BEGIN -->
-        <section class="sectionBtns transition02 mt-3 mb-4">
+        <section class="sectionBtns transition02 mt-0">
             <div class="container">
                 <div class="row transition05 justify-content-end">
-                    <div class="divKeepShopping transition05 text-center col-6 p-2 my-3">
-                        <a href="#" onclick="fnReloadPage();" class="px-4 py-5 mb-4 border rounded-3 w-100 d-inline-block bg-secondary text-decoration-none" style="cursor: pointer;">
-                            <i class="fas fa-arrow-left text-light me-2"></i>                            
-                            <span class="me-2 text-light">
+                    <div class="divKeepShopping transition03 text-center col-6 p-2 my-3">
+                        <a href="#" onclick="fnReloadPage();" class="btnKeepShopping px-4 py-5 mb-4 transition02 border rounded-3 w-100 d-inline-block bg-linearGradient2 text-light text-decoration-none cursor-pointer">
+                            <i class="fas fa-arrow-left me-2"></i>
+                            <span class="me-2">
                                 Keep Shopping
                             </span>
                         </a>
                     </div>
-                    <div class="divCheckout transition05 text-center col-6 p-2 my-3">
-                        <a href="#sectionStage" onclick="fnChekout();" class="btnCheckout transition05 px-4 py-4 py-5 rounded-3 w-100 d-inline-block bg-primary text-decoration-none" style="cursor: pointer;">
-                            <span class="me-2 text-light">
-                                Got to Checkout
+                    <div class="divCheckout transition03 text-center col-6 p-2 my-3">
+                        <a href="#sectionPaymentMethods" onclick="fnChekout();" class="btnCheckout transition02 px-4 py-4 py-5 rounded-3 w-100 d-inline-block bg-linearGradient1 text-light text-decoration-none cursor-pointer">
+                            <span class="me-2">
+                                Go to Checkout
                             </span>
-                            <i class="fas fa-money-bill-wave text-light"></i>
+                            <i class="fas fa-money-bill-wave"></i>
                         </a>
                     </div>
                 </div>
@@ -228,8 +231,8 @@
         <!-- MAIN BUTTONS SECTION - END -->
 
         <!-- STAGES SECTION - BEGIN -->
-        <section class="sectionStage transition02 d-none opacity-0">
-            <div class="container mb-5 text-center">
+        <section class="sectionStage transition02 d-none opacity-0 mb-5 mt-2">
+            <div class="container text-center">
                 <div class="row">
                     <div id="PaymentMethod" class="col-6 d-flex justify-content-center align-items-center" title="Step Concluded">
                         <span class="spanBadgePaymentMethod badge bg-secondary me-2">
@@ -259,7 +262,7 @@
         <!-- STAGES SECTION - END -->
         
         <!-- PAYMENT METHODS SECTION - BEGIN -->
-        <section class="sectionPaymentMethods transition02 d-none opacity-0 mb-5">
+        <section id="sectionPaymentMethods" class="sectionPaymentMethods transition02 d-none opacity-0 mb-6">
             <div class="container">
                 <div class="row position-relative mb-5">
                     <div class="paymentOption fw-bold col-12 col-md-6 my-3">
@@ -270,6 +273,11 @@
                                 </div>
                                 <div class="text-dark me-3">
                                     Credit card
+                                    <em class="d-block">
+                                        <small class="text-muted">
+                                            (Installment above $ 10)
+                                        </small>
+                                    </em>
                                 </div>
                                 <div class="paymentArrowRight position-absolute transition02 right20PNeg">
                                     <i class="fas fa-arrow-right fa-1x text-primary"></i>
@@ -328,13 +336,16 @@
         <!-- PAYMENT METHODS SECTION - END -->
 
         <!-- PAYMENT INFORMATIONS SECTION - BEGIN -->
-        <section class="sectionPaymentInfos transition02 mb-5 d-none opacity-0">
+        <section class="sectionPaymentInfos transition02 d-none opacity-0 mb-6">
             <div class="container my-5">
                 <div class="row">
                     <div class="col-12 text-center py-3 mt-2 mb-4 bg-primaryCustom text-primary">
                         Payment Method Selected: 
                         <span class="fw-bold">
                             Credit Card
+                        </span>
+                        <span class="PaymentInfosValue">
+                            0
                         </span>
                     </div>
                 </div>
@@ -346,10 +357,10 @@
                         <form class="needs-validation" novalidate>
                             <div class="row g-3">                
                                 <div class="col-12">
-                                <label for="fullName" class="form-label">
-                                    Full name
-                                </label>
-                                <input type="text" class="form-control" id="fullName">
+                                    <label for="fullName" class="form-label">
+                                        Full name
+                                    </label>
+                                    <input type="text" class="form-control" id="fullName">
                                 </div>
 
                                 <div class="col-12">
@@ -366,28 +377,28 @@
                                 </div>
                     
                                 <div class="col-12">
-                                <label for="address" class="form-label">
-                                    Address
-                                </label>
-                                <input type="text" class="form-control" id="address">
+                                    <label for="address" class="form-label">
+                                        Address
+                                    </label>
+                                    <input type="text" class="form-control" id="address">
                                 </div>
                     
                                 <div class="col-md-5">
-                                <label for="country" class="form-label">
-                                    Country
-                                </label>
-                                <select class="form-select" id="country">
-                                    <option value="">Options</option>
-                                </select>
+                                    <label for="country" class="form-label">
+                                        Country
+                                    </label>
+                                    <select class="form-select" id="country">
+                                        <option value="">Options</option>
+                                    </select>
                                 </div>
                     
                                 <div class="col-md-4">
-                                <label for="state" class="form-label">
-                                    State
-                                </label>
-                                <select class="form-select" id="state">
-                                    <option value="">Options</option>
-                                </select>
+                                    <label for="state" class="form-label">
+                                        State
+                                    </label>
+                                    <select class="form-select" id="state">
+                                        <option value="">Options</option>
+                                    </select>
                                 </div>
                     
                                 <div class="col-md-3">
@@ -445,21 +456,40 @@
                                 </label>
                                 <input type="text" class="form-control" id="CreditCardCVV">
                             </div>
+                    
+                            <div class="col-12">
+                                <label for="country" class="form-label">
+                                    Installment
+                                    <em>
+                                        <small class="text-muted">
+                                            (above $ 10)
+                                        </small>
+                                    </em>
+                                </label>
+                                <select class="form-select" id="Installment">
+                                    <option value="">Options</option>
+                                    <option value="">1 x 1.99</option>
+                                </select>
+                            </div>
 
-                            <hr class="my-4">
-                
-                            <div class="form-check">
+                            <div>
+                                <hr class="mt-2 mb-4">
+                            </div>
+
+                            <div class="form-check mt-0">
                                 <input type="checkbox" class="form-check-input" id="checkSaveInfo">
                                 <label class="form-check-label" for="checkSaveInfo">
-                                    Save this information for next time
+                                    Save this 'Card Information' for next time
                                 </label>
                             </div>
+                            
                         </div>                
                     </div>
                     <div class="col-12 px-5 text-center">
                         <!-- <button class="w-50 btn btnprimary btn-lg mt-5" type="submit"> -->
-                        <button class="w-50 btn btn-primary btn-lg mt-5" type="button" onclick="submitForm();">
-                            Pay
+                        <button class="btnPay w-50 btn btn-primary btn-lg mt-5" type="button" onclick="submitForm();">
+                            Pay 
+                            <span>0</span>
                         </button>
                         </form>
                     </div>
@@ -491,12 +521,28 @@
     <!-- MAIN SECTION - END -->
 
     <!-- FOOTER SECTION - BEGIN -->
-    <footer class="py-4 bg-dark">
+    <footer class="py-4 bg-dark position-fixed w-100 bottom-0">
         <div class="container">
             <div class="row">
-                <span class="text-muted text-center">
-                    Developed by <a href="https://github.com/dsrivan">Ivan Rosa</a>.
-                </span>
+                <div class="text-center position-relative">
+                    <span class="text-muted text-center">
+                        <a target="_blank" href="https://github.com/dsrivan">
+                            Developed
+                        </a>
+                    </span>
+                    <span class="text-light">
+                        by
+                    </span>
+                    <span class="text-muted text-center">
+                        <a target="_blank" href="https://www.linkedin.com/in/dsrivan/">
+                            Ivan Rosa
+                        </a>
+                    </span>
+                    <a href="#" onclick="fnToTop();" class="aToTop position-fixed transition02 text-light bg-primary ps-3 pe-5 rounded-3 cursor-pointer text-decoration-none scale0">
+                        <i class="fas fa-long-arrow-alt-up py-2 px-2"></i>
+                        To Top
+                    </a>
+                </div>
             </div>
         </div>
     </footer>

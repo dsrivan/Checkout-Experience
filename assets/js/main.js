@@ -264,8 +264,9 @@ function fnItemIncrease(elem) {
 function fnUpdateSubTotPrice() {
     const productList = fnQuerySelectorAll('.tdDescription');
 
-    for (let i = 0; i < productList.length; i++) {
+    console.log(productList.length);
 
+    for (let i = 0; i < productList.length; i++) {
         let tdUn = fnQuerySelector(".tdUn_" + (i + 1) + " span");
         let inputQty = fnQuerySelector(".inputQty_" + (i + 1));
         let tdSubTot = fnQuerySelector(".tdSubTot_" + (i + 1) + " span");
@@ -290,20 +291,29 @@ function fnUpdateTotalPrice() {
         total += parseFloat(td.innerHTML.trim());
     });
 
-    /* INSERT THE NEW VALUE */
+    /* INSERT THE NEW VALUE ON TOTAL ORDER */
     fnQuerySelector('.tdTotal span').innerHTML = total.toFixed(2);
+
+    /* INSERT THE NEW VALUE ON PAYMENT INFORMATION SECTION */
+    fnQuerySelector('.PaymentInfosValue').innerHTML = `- ($ ${total.toFixed(2)})`;
+
+    /* INSERT THE NEW VALUE ON PAY BUTTON */
+    fnQuerySelector('.btnPay span').innerHTML = `- ($ ${total.toFixed(2)})`;
+
+    /* UPDATE THE INSTALLMENT */
+    fnUpdateInstallment();
 }
 /********************* TO UPDATE THE TOTAL ORDER - END *********************/
 
 
 /********************* TO ALLOW ONLY NUMBERS - BEGIN *********************/
 function onlyNumbers(e) {
+
     var charCode = e.charCode ? e.charCode : e.keyCode;
     // charCode 8 = backspace   
     // charCode 9 = tab
     if (charCode != 8 && charCode != 9) {
         if (charCode < 49 || charCode > 57) {
-            console.log('false');
             return false;
         }
     }
@@ -313,9 +323,23 @@ function onlyNumbers(e) {
 
 /********************* TO REMOVE A PRODUCT FROM LIST - BEGIN *********************/
 function fnRemoveProduct(id) {
-    fnQuerySelector('.trProd_' + id).innerHTML = "";
+    fnQuerySelector('.trProd_' + id).remove();
+
+    /* PRODUCTS COUNT */
+    fnProductsCount();
 }
 /********************* TO REMOVE A PRODUCT FROM LIST - END *********************/
+
+
+/********************* TO COUNT PRODUCTS - BEGIN *********************/
+function fnProductsCount() {
+    let thCountProd = fnQuerySelectorAll('.thCountProd span');
+
+    for (let i = 0; i < thCountProd.length; i++) {
+        thCountProd[i].innerHTML = i + 1;
+    }
+}
+/********************* TO COUNT PRODUCTS - END *********************/
 
 
 /********************* TO REMOVE A PRODUCT FROM LIST - END *********************/
@@ -347,10 +371,60 @@ function fnCheckQuantityProducts() {
 /********************* TO REMOVE A PRODUCT FROM LIST - END *********************/
 
 
+/********************* TO UPDATE THE INSTALLMENT - BEGIN *********************/
+function fnUpdateInstallment() {
+    let maxInstallment = 6;
+
+    let installment = fnQuerySelector('#Installment');
+    installment.innerHTML = "";
+
+    let totalValue = fnQuerySelector('.tdTotal span').innerHTML.trim();
+
+    var elem = document.createElement('option');
+    elem.value = 0;
+    elem.text = 'Options';
+    installment.add(elem, installment.options[0]);
+
+    if (parseFloat(totalValue) > 10) {
+        for (let i = 1; i < (maxInstallment + 1); i++) {
+            elem = document.createElement('option');
+            let vValue = (totalValue / i).toFixed(2);
+            elem.text = `${i} x $ ${vValue} - ($ ${totalValue})`;
+
+            if (parseFloat(vValue) > 0) {
+                installment.add(elem, installment.options[i]);
+            }
+        }
+    } else {
+        elem = document.createElement('option');
+        elem.text = `1 x $ ${totalValue} - ($ ${totalValue})`;
+        installment.add(elem, installment.options[1]);
+    }
+}
+/********************* TO UPDATE THE INSTALLMENT - END *********************/
+
+
+/********************* TO SHOW/HIDE TO TOP BUTTON - BEGIN *********************/
+function fnShowHideAToTop() {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        fnRemoveClass(fnQuerySelector('.aToTop'), 'scale0');
+    } else {
+        fnAddClass(fnQuerySelector('.aToTop'), 'scale0');
+    }
+}
+/********************* TO SHOW/HIDE TO TOP BUTTON - END *********************/
+
+
 
 
 
 /********************* FUNCTION AUTO EXECUTABLE - BEGIN *********************/
 /* TO UPDATE THE SUBTOTAL PRICE */
 fnUpdateSubTotPrice();
+
+/* TO UPDATE THE INSTALLMENTS OPTIONS */
+fnUpdateInstallment();
+
+/* TO SHOW/HIDE TO TOP BUTTON */
+window.onscroll = () => fnShowHideAToTop();
 /********************* FUNCTION AUTO EXECUTABLE - END *********************/
