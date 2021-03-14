@@ -49,6 +49,7 @@ function fnChekout() {
 
     /* HIDE THE OPTION 'KEEP SHOPPING' */
     fnAddClass(vElements.divKeepShopping, 'd-none');
+    fnAddClass(vElements.divKeepShopping, 'col-1');
 
     /* INCREASE THE OPTION 'GO TO CHECKOUT' */
     fnAddClass(vElements.divCheckout, 'col-12');
@@ -229,3 +230,127 @@ function fnToTop() {
     })
 };
 /********************* GO TO PAGE TOP - END *********************/
+
+
+/********************* TO DECREASE ONE UNIT OF CURRENTLY PRODUCT - BEGIN *********************/
+function fnItemDecrease(elem) {
+    let targetInput = elem.nextElementSibling;
+    if (parseInt(targetInput.value) > 1) {
+        const newValue = parseFloat(targetInput.value) - 1;
+        targetInput.value = newValue;
+
+        /* TO UPDATE THE SUBTOTAL PRICE */
+        fnUpdateSubTotPrice();
+    }
+}
+/********************* TO DECREASE ONE UNIT OF CURRENTLY PRODUCT - END *********************/
+
+
+/********************* TO INCREASE ONE UNIT OF CURRENTLY PRODUCT - BEGIN *********************/
+function fnItemIncrease(elem) {
+    let targetInput = elem.previousElementSibling;
+    if (parseInt(targetInput.value) >= 0 && parseInt(targetInput.value) < 100) {
+        const newValue = parseFloat(targetInput.value) + 1;
+        targetInput.value = newValue;
+
+        /* TO UPDATE THE SUBTOTAL PRICE */
+        fnUpdateSubTotPrice();
+    }
+}
+/********************* TO INCREASE ONE UNIT OF CURRENTLY PRODUCT - END *********************/
+
+
+/********************* TO UPDATE THE SUBTOTAL PRICE - BEGIN *********************/
+function fnUpdateSubTotPrice() {
+    const productList = fnQuerySelectorAll('.tdDescription');
+
+    for (let i = 0; i < productList.length; i++) {
+
+        let tdUn = fnQuerySelector(".tdUn_" + (i + 1) + " span");
+        let inputQty = fnQuerySelector(".inputQty_" + (i + 1));
+        let tdSubTot = fnQuerySelector(".tdSubTot_" + (i + 1) + " span");
+
+        if (tdUn != null && inputQty != null && tdSubTot != null) {
+            tdSubTot.innerHTML = (parseFloat(tdUn.innerHTML.trim()) * parseFloat(inputQty.value.trim())).toFixed(2);
+        }
+    }
+
+    /* TO UPDATE THE TOTAL ORDER */
+    fnUpdateTotalPrice();
+}
+/********************* TO UPDATE THE SUBTOTAL PRICE - END *********************/
+
+
+/********************* TO UPDATE THE TOTAL ORDER - BEGIN *********************/
+function fnUpdateTotalPrice() {
+    const tdSubTot = fnQuerySelectorAll('.tdSubTot span');
+    let total = 0;
+
+    tdSubTot.forEach((td) => {
+        total += parseFloat(td.innerHTML.trim());
+    });
+
+    /* INSERT THE NEW VALUE */
+    fnQuerySelector('.tdTotal span').innerHTML = total.toFixed(2);
+}
+/********************* TO UPDATE THE TOTAL ORDER - END *********************/
+
+
+/********************* TO ALLOW ONLY NUMBERS - BEGIN *********************/
+function onlyNumbers(e) {
+    var charCode = e.charCode ? e.charCode : e.keyCode;
+    // charCode 8 = backspace   
+    // charCode 9 = tab
+    if (charCode != 8 && charCode != 9) {
+        if (charCode < 49 || charCode > 57) {
+            console.log('false');
+            return false;
+        }
+    }
+}
+/********************* TO ALLOW ONLY NUMBERS - END *********************/
+
+
+/********************* TO REMOVE A PRODUCT FROM LIST - BEGIN *********************/
+function fnRemoveProduct(id) {
+    fnQuerySelector('.trProd_' + id).innerHTML = "";
+}
+/********************* TO REMOVE A PRODUCT FROM LIST - END *********************/
+
+
+/********************* TO REMOVE A PRODUCT FROM LIST - END *********************/
+function fnCheckQuantityProducts() {
+
+    if (parseFloat(fnQuerySelector('.tdTotal span').innerHTML) == 0) {
+        let divKeepShopping = fnQuerySelector('.divKeepShopping');
+        let divCheckout = fnQuerySelector('.divCheckout');
+
+        fnToTop();
+
+        fnRemoveClass(divKeepShopping.parentNode, 'justify-content-end');
+        fnRemoveClass(divCheckout, 'col-12');
+        fnRemoveClass(divKeepShopping, 'd-none');
+        fnAddClass(divCheckout, 'd-none');
+        setTimeout(() => {
+            fnAddClass(divKeepShopping, 'col-12');
+        }, 100);
+        fnAddClass(fnQuerySelector('.sectionStage'), 'scale0');
+        fnAddClass(fnQuerySelector('.sectionPaymentMethods'), 'scale0');
+        fnAddClass(fnQuerySelector('.sectionPaymentInfos'), 'scale0');
+        setTimeout(() => {
+            fnAddClass(fnQuerySelector('.sectionStage'), 'd-none');
+            fnAddClass(fnQuerySelector('.sectionPaymentMethods'), 'd-none');
+            fnAddClass(fnQuerySelector('.sectionPaymentInfos'), 'd-none');
+        }, 500);
+    }
+}
+/********************* TO REMOVE A PRODUCT FROM LIST - END *********************/
+
+
+
+
+
+/********************* FUNCTION AUTO EXECUTABLE - BEGIN *********************/
+/* TO UPDATE THE SUBTOTAL PRICE */
+fnUpdateSubTotPrice();
+/********************* FUNCTION AUTO EXECUTABLE - END *********************/
