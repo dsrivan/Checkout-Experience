@@ -24,27 +24,27 @@ No have dependencies.
 ## Demos
 
 ### Demo: 'Clean Cart'
-[Demo: 'CleanCart'](assets/img/demo/CleanCart.gif)
+![Demo: 'CleanCart'](assets/img/demo/CleanCart.gif)
 _Validations and animation when cleaning the cart_
 
 ### Demo: 'Items Quantity'
-[Demo: 'ItemsQuantity'](assets/img/demo/ItemsQuantity.gif)
+![Demo: 'ItemsQuantity'](assets/img/demo/ItemsQuantity.gif)
 _Manipulate the quantity and update the order subtotal_
 
 ### Demo: 'Order Above $ 10'
-[Demo: 'OrderAbove10$'](assets/img/demo/OrderAbove10$.gif)
+![Demo: 'OrderAbove10$'](assets/img/demo/OrderAbove10$.gif)
 _Installment payment when order above $ 10_
 
 ### Demo: 'Order Under $ 10'
-[Demo: 'OrderUnder10$'](assets/img/demo/OrderUnder10$.gif)
+![Demo: 'OrderUnder10$'](assets/img/demo/OrderUnder10$.gif)
 _Installment payment when order under $ 10_
 
 ### Demo: 'To Top Button'
-[Demo: 'ManageToTopButton'](assets/img/demo/ManageToTopButton.gif)
+![Demo: 'ManageToTopButton'](assets/img/demo/ManageToTopButton.gif)
 _Manipulations for 'to top' button_
 
 ### Demo: 'MobileVersion'
-[Demo: 'MobileVersion'](assets/img/demo/MobileVersion.gif)
+![Demo: 'MobileVersion'](assets/img/demo/MobileVersion.gif)
 _Mobile version of this development_
 &nbsp;
 ##### _Note: this development focuses on the 'front-end'_
