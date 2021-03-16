@@ -31,8 +31,8 @@
     
     <!-- HEADER SECTION (NAV) - BEGIN -->
     <header>
-        <nav class="navbar navbar-primary bg-primary">
-            <div class="container bg-primary">
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container bg-dark">
                 <a class="navbar-brand text-light" href="#">
                     <img src="assets/img/bootstrap-logo.svg" alt="" width="30" height="24">
                     Bootstrap
@@ -51,7 +51,7 @@
         <!-- BREADCRUMBS SECTION - BEGIN -->
         <section>
             <div class="container">
-                <div class="row my-4 bg-primaryCustom ">
+                <div class="row my-4 bg-LightCustom1 ">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb m-0 py-2">
                             <li class="breadcrumb-item">
@@ -70,126 +70,129 @@
         <!-- BREADCRUMBS SECTION - END -->
 
         <!-- ORDER DETAILS SECTION - BEGIN  -->
-        <section class="sectionOrderDetails pt-5 pb-4">
+        <section class="sectionOrderDetails pt-3 pt-md-5 pb-0 pb-md-4">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 mb-5">
-                        <h2>
+                    <div class="col-12 mb-3 mb-md-5">
+                        <h3>
                             Checkout Experience
-                        </h2>
+                        </h3>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="mb-4">
+                        <h4 class="mb-4">
                             Order details
-                        </h2>
+                        </h4>
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead>
                                     <tr class="text-uppercase">
-                                        <th scope="col">#</th>
                                         <th scope="col">Description</th>
-                                        <th scope="col">Un</th>
-                                        <th scope="col">Qty</th>
-                                        <th scope="col">SubTot</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">SubTotal</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="trProd_1">
-                                        <th class="thCountProd" scope="row">
-                                            <span class="me-2">
-                                                1
-                                            </span>
-                                            <i onclick="fnRemoveProduct(1); fnUpdateSubTotPrice(); fnCheckQuantityProducts();" class="fas fa-trash fa-1x cursor-pointer"></i>
-                                        </th>
+                                    <tr class="trProd trProd_1">
                                         <td class="tdDescription tdDescription_1">
-                                            <span class="me-3">
-                                                <img src="assets/img/camiseta.png" width="32" height="32" alt="IMG">
-                                            </span>
-                                            <span class="d-inline-block">
-                                                Product One
-                                            </span>
-                                        </td>
-                                        <td class="tdUn tdUn_1">
-                                            $ <span>1.99</span>
+                                            <div class=" d-flex align-items-center">
+                                                <span class="me-3">
+                                                    <img src="assets/img/camiseta.png" width="45" height="45" alt="IMG">
+                                                </span>
+                                                <i onclick="fnRemoveProduct(1); fnUpdateSubTotPrice(); fnCheckQuantityProducts();" class="fas fa-trash fa-1x cursor-pointer btn-outline-dark p-2 me-3 rounded-1"></i>
+                                                <div class="d-inline-block">
+                                                    <span>
+                                                        Product Two
+                                                    </span>
+                                                    <span class="text-muted d-block" style="font-size: .8rem;">
+                                                        $ <span class="tdUn tdUn_1">1.99</span> /un
+                                                    </span>
+                                                </div>
+                                            </div>
                                         </td>
                                         <td class="tdQty_1">
-                                            <div class="d-flex align-items-center" style="width: 100px;">
-                                                <i onclick="fnItemDecrease(this);" class="fas fa-minus fa-1x cursor-pointer me-2"></i>
-                                                <input onkeypress="return onlyNumbers(event); fnUpdateSubTotPrice();" onblur="fnUpdateSubTotPrice();" type="text" class="inputQty_1 form-control me-2 text-center" id="" value="3" maxlength="2">
-                                                <i onclick="fnItemIncrease(this);" class="fas fa-plus fa-1x cursor-pointer"></i>
+                                            <div class="d-flex align-items-center">
+                                                <i onclick="fnItemDecrease(this);" class="fas fa-chevron-down btn-outline-secondary p-1 rounded-1 cursor-pointer me-1" style="font-size: .9rem;"></i>
+                                                <span class="inputQty_1 p-2">
+                                                    3
+                                                </span>
+                                                <i onclick="fnItemIncrease(this);" class="fas fa-chevron-up btn-outline-secondary p-1 rounded-1 cursor-pointer ms-1" style="font-size: .9rem;"></i>
                                             </div>
                                         </td>
-                                        <td class="tdSubTot tdSubTot_1">
-                                            $ <span>0.00</span>
+                                        <td class="align-middle">
+                                            $ <span class="tdSubTot tdSubTot_1">0.00</span>
                                         </td>
                                     </tr>
-                                    <tr class="trProd_2">
-                                        <th class="thCountProd" scope="row">
-                                            <span class="me-2">
-                                                2
-                                            </span>
-                                            <i onclick="fnRemoveProduct(2); fnUpdateSubTotPrice(); fnCheckQuantityProducts();" class="fas fa-trash fa-1x cursor-pointer"></i>
-                                        </th>
+                                    <tr class="trProd trProd_2">
                                         <td class="tdDescription tdDescription_2">
-                                            <span class="me-3">
-                                                <img src="assets/img/calca.png" width="32" height="32" alt="IMG">
-                                            </span>
-                                            <span class="d-inline-block">
-                                                Product Two
-                                            </span>
+                                            <div class=" d-flex align-items-center">
+                                                <span class="me-3">
+                                                    <img src="assets/img/calca.png" width="45" height="45" alt="IMG">
+                                                </span>
+                                                <i onclick="fnRemoveProduct(2); fnUpdateSubTotPrice(); fnCheckQuantityProducts();" class="fas fa-trash fa-1x cursor-pointer btn-outline-dark p-2 me-3 rounded-1"></i>
+                                                <div class="d-inline-block">
+                                                    <span>
+                                                        Product Two
+                                                    </span>
+                                                    <span class="text-muted d-block" style="font-size: .8rem;">
+                                                        $ <span class="tdUn tdUn_2">9.99</span> /un
+                                                    </span>
+                                                </div>
+                                            </div>                                                
                                         </td>
-                                        <td class="tdUn tdUn_2">
-                                            $ <span>9.99</span>
-                                        </td>
-                                        <td class="tdQty_2">
-                                            <div class="d-flex align-items-center" style="width: 100px;">
-                                                <i onclick="fnItemDecrease(this);" class="fas fa-minus fa-1x cursor-pointer me-2"></i>
-                                                <input onkeypress="return onlyNumbers(event); fnUpdateSubTotPrice();" onblur="fnUpdateSubTotPrice();" type="text" class="inputQty_2 form-control me-2 text-center" value="1" maxlength="2">
-                                                <i onclick="fnItemIncrease(this);" class="fas fa-plus fa-1x cursor-pointer"></i>
+                                        <td class="tdQty_2 align-middle">
+                                            <div class="d-flex align-items-center">
+                                                <i onclick="fnItemDecrease(this);" class="fas fa-chevron-down btn-outline-secondary p-1 rounded-1 cursor-pointer me-1" style="font-size: .9rem;"></i>
+                                                <span class="inputQty_2 p-2">
+                                                    1
+                                                </span>
+                                                <i onclick="fnItemIncrease(this);" class="fas fa-chevron-up btn-outline-secondary p-1 rounded-1 cursor-pointer ms-1" style="font-size: .9rem;"></i>
                                             </div>
                                         </td>
-                                        <td class="tdSubTot tdSubTot_2">
-                                            $ <span>0.00</span>
+                                        <td class="align-middle">
+                                            $ <span class="tdSubTot tdSubTot_2">0.00</span>
                                         </td>
                                     </tr>
-                                    <tr class="trProd_3">
-                                        <th class="thCountProd" scope="row">                                            
-                                            <span class="me-2">
-                                                3
-                                            </span>
-                                            <i onclick="fnRemoveProduct(3); fnUpdateSubTotPrice(); fnCheckQuantityProducts();" class="fas fa-trash fa-1x cursor-pointer"></i>
-                                        </th>
-                                        <td class="tdDescription tdDescription_3">
-                                            <span class="me-3">
-                                                <img src="assets/img/bone.png" width="32" height="32" alt="IMG">
-                                            </span>
-                                            <span class="d-inline-block">
-                                                Product Three
-                                            </span>
-                                        </td>
-                                        <td class="tdUn tdUn_3">
-                                            $ <span>2.49</span>
-                                        </td>
-                                        <td class="tdQty_3">
-                                            <div class="d-flex align-items-center" style="width: 100px;">
-                                                <i onclick="fnItemDecrease(this);" class="fas fa-minus fa-1x cursor-pointer me-2"></i>
-                                                <input onkeypress="return onlyNumbers(event); fnUpdateSubTotPrice();" onblur="fnUpdateSubTotPrice();" type="text" class="inputQty_3 form-control me-2 text-center" value="2" maxlength="2">
-                                                <i onclick="fnItemIncrease(this);" class="fas fa-plus fa-1x cursor-pointer"></i>
+                                    <tr class="trProd trProd_3">
+                                        <td class="tdDescription tdDescription_3 align-middle">
+                                            <div class=" d-flex align-items-center">
+                                                <span class="me-3">
+                                                    <img src="assets/img/bone.png" width="45" height="45" alt="IMG">
+                                                </span>
+                                                <i onclick="fnRemoveProduct(3); fnUpdateSubTotPrice(); fnCheckQuantityProducts();" class="fas fa-trash fa-1x cursor-pointer btn-outline-dark p-2 me-3 rounded-1"></i>
+                                                <div class="d-inline-block">
+                                                    <span class="d-inline-block">
+                                                        Product Three
+                                                    </span>
+                                                    <span class=" text-muted d-block" style="font-size: .8rem;">
+                                                        $ <span class="tdUn tdUn_3">4.49</span> /un
+                                                    </span>
+                                                </div>
                                             </div>
                                         </td>
-                                        <td class="tdSubTot tdSubTot_3">
-                                            $ <span>0.00</span>
+                                        <td class="tdQty_3 align-middle">
+                                            <div class="d-flex align-items-center">
+                                                <i onclick="fnItemDecrease(this);" class="fas fa-chevron-down btn-outline-secondary p-1 rounded-1 cursor-pointer me-1" style="font-size: .9rem;"></i>
+                                                <span class="inputQty_3 p-2">
+                                                    3
+                                                </span>
+                                                <i onclick="fnItemIncrease(this);" class="fas fa-chevron-up btn-outline-secondary p-1 rounded-1 cursor-pointer ms-1" style="font-size: .9rem;"></i>
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            $ <span class="tdSubTot tdSubTot_3">0.00</span>
                                         </td>
                                     </tr>
                                 </tbody>
-                                <tfoot class="bg-secondary text-light fs-5">
+                                <tfoot class="text-uppercase bg-secondary text-light">
                                     <tr class="fw-bold">
-                                        <td colspan="4" class="border border-secondary">
-                                            TOTAL
+                                        <td colspan="2" class="align-middle py-3">
+                                            <span>
+                                                Total
+                                            </span>
                                         </td>
-                                        <td class="tdTotal border border-secondary d-flex">
+                                        <td class="tdTotal align-middle py-3">
                                             $ 
                                             <span class="ms-1">
                                                 0.00
@@ -206,11 +209,11 @@
         <!-- ORDER DETAILS SECTION - END  -->
 
         <!-- MAIN BUTTONS SECTION - BEGIN -->
-        <section class="sectionBtns transition02 mt-0">
+        <section class="sectionBtns transition02 mt-0 mb-5">
             <div class="container">
                 <div class="row transition05 justify-content-end">
                     <div class="divKeepShopping transition03 text-center col-6 p-2 my-3">
-                        <a href="#" onclick="fnReloadPage();" class="btnKeepShopping px-4 py-5 mb-4 transition02 border rounded-3 w-100 d-inline-block bg-linearGradient2 text-light text-decoration-none cursor-pointer">
+                        <a href="#" onclick="fnReloadPage();" class="btnKeepShopping px-4 py-5 mb-4 transition02 border rounded-3 w-100 d-inline-block btn-outline-secondary text-decoration-none cursor-pointer">
                             <i class="fas fa-arrow-left me-2"></i>
                             <span class="me-2">
                                 Keep Shopping
@@ -218,7 +221,7 @@
                         </a>
                     </div>
                     <div class="divCheckout transition03 text-center col-6 p-2 my-3">
-                        <a href="#sectionPaymentMethods" onclick="fnChekout();" class="btnCheckout transition02 px-4 py-4 py-5 rounded-3 w-100 d-inline-block bg-linearGradient1 text-light text-decoration-none cursor-pointer">
+                        <a href="#sectionPaymentMethods" onclick="fnChekout();" class="btnCheckout transition02 px-4 py-4 py-5 rounded-3 w-100 d-inline-block btn-primary text-light text-decoration-none cursor-pointer">
                             <span class="me-2">
                                 Go to Checkout
                             </span>
@@ -530,7 +533,7 @@
                             Developed
                         </a>
                     </span>
-                    <span class="text-light">
+                    <span class="text-light mx-2">
                         by
                     </span>
                     <span class="text-muted text-center">

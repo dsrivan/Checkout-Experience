@@ -57,6 +57,9 @@ function fnChekout() {
     /* INCREASE THE PADDING ON VERTICAL */
     fnRemoveClass(vElements.btnCheckout, 'py-5');
 
+    /* TO REMOVE THE MARGIN BOTTOM */
+    fnRemoveClass(vElements.sectionBtns, 'mb-5');
+
     /* TO SHOW THE STAGES BLOCK APPLYING EFFECTS */
     fnRemoveClass(vElements.sectionStage, 'd-none');
     setTimeout(() => {
@@ -151,7 +154,7 @@ function submitForm() {
     setTimeout(() => {
         /* TO SHOW THE 'LOADING' BLOCK */
         fnPrefnToggleSectionLoading();
-    }, 500);
+    }, 200);
 
     setTimeout(() => {
         /* TO HIDE THE 'ORDER DETAILS' BLOCK BY APPLYING EFFECTS */
@@ -235,9 +238,9 @@ function fnToTop() {
 /********************* TO DECREASE ONE UNIT OF CURRENTLY PRODUCT - BEGIN *********************/
 function fnItemDecrease(elem) {
     let targetInput = elem.nextElementSibling;
-    if (parseInt(targetInput.value) > 1) {
-        const newValue = parseFloat(targetInput.value) - 1;
-        targetInput.value = newValue;
+    if (parseInt(targetInput.innerHTML.trim()) > 1) {
+        const newValue = parseFloat(targetInput.innerHTML.trim()) - 1;
+        targetInput.innerHTML = newValue;
 
         /* TO UPDATE THE SUBTOTAL PRICE */
         fnUpdateSubTotPrice();
@@ -249,9 +252,9 @@ function fnItemDecrease(elem) {
 /********************* TO INCREASE ONE UNIT OF CURRENTLY PRODUCT - BEGIN *********************/
 function fnItemIncrease(elem) {
     let targetInput = elem.previousElementSibling;
-    if (parseInt(targetInput.value) >= 0 && parseInt(targetInput.value) < 100) {
-        const newValue = parseFloat(targetInput.value) + 1;
-        targetInput.value = newValue;
+    if (parseInt(targetInput.innerHTML.trim()) >= 0 && parseInt(targetInput.innerHTML.trim()) < 100) {
+        const newValue = parseFloat(targetInput.innerHTML.trim()) + 1;
+        targetInput.innerHTML = newValue;
 
         /* TO UPDATE THE SUBTOTAL PRICE */
         fnUpdateSubTotPrice();
@@ -262,17 +265,15 @@ function fnItemIncrease(elem) {
 
 /********************* TO UPDATE THE SUBTOTAL PRICE - BEGIN *********************/
 function fnUpdateSubTotPrice() {
-    const productList = fnQuerySelectorAll('.tdDescription');
-
-    console.log(productList.length);
+    let productList = fnQuerySelectorAll('.trProd');
 
     for (let i = 0; i < productList.length; i++) {
-        let tdUn = fnQuerySelector(".tdUn_" + (i + 1) + " span");
+        let tdUn = fnQuerySelector(".tdUn_" + (i + 1));
         let inputQty = fnQuerySelector(".inputQty_" + (i + 1));
-        let tdSubTot = fnQuerySelector(".tdSubTot_" + (i + 1) + " span");
+        let tdSubTot = fnQuerySelector(".tdSubTot_" + (i + 1));
 
         if (tdUn != null && inputQty != null && tdSubTot != null) {
-            tdSubTot.innerHTML = (parseFloat(tdUn.innerHTML.trim()) * parseFloat(inputQty.value.trim())).toFixed(2);
+            tdSubTot.innerHTML = (parseFloat(tdUn.innerHTML.trim()) * parseFloat(inputQty.innerHTML.trim())).toFixed(2);
         }
     }
 
@@ -324,22 +325,8 @@ function onlyNumbers(e) {
 /********************* TO REMOVE A PRODUCT FROM LIST - BEGIN *********************/
 function fnRemoveProduct(id) {
     fnQuerySelector('.trProd_' + id).remove();
-
-    /* PRODUCTS COUNT */
-    fnProductsCount();
 }
 /********************* TO REMOVE A PRODUCT FROM LIST - END *********************/
-
-
-/********************* TO COUNT PRODUCTS - BEGIN *********************/
-function fnProductsCount() {
-    let thCountProd = fnQuerySelectorAll('.thCountProd span');
-
-    for (let i = 0; i < thCountProd.length; i++) {
-        thCountProd[i].innerHTML = i + 1;
-    }
-}
-/********************* TO COUNT PRODUCTS - END *********************/
 
 
 /********************* TO REMOVE A PRODUCT FROM LIST - END *********************/
@@ -406,7 +393,7 @@ function fnUpdateInstallment() {
 
 /********************* TO SHOW/HIDE TO TOP BUTTON - BEGIN *********************/
 function fnShowHideAToTop() {
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
         fnRemoveClass(fnQuerySelector('.aToTop'), 'scale0');
     } else {
         fnAddClass(fnQuerySelector('.aToTop'), 'scale0');

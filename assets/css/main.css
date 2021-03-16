@@ -4,6 +4,7 @@
   --PrimaryCustom: #e2eeff;
   --PrimaryCustom2: #c3dbff;
   --LightCustom: #ffffffc4;
+  --LightCustom1: #e1e1e1;
 }
 /* Bootstrap colors - END */
 
@@ -15,6 +16,7 @@
 body {
   z-index: 1;
   scroll-behavior: smooth;
+  font-size: 14px;
 }
 /* General Configuration - END */
 
@@ -29,6 +31,10 @@ body {
 
 .bg-primaryCustom {
   background-color: var(--PrimaryCustom);
+}
+
+.bg-LightCustom1 {
+  background-color: var(--LightCustom1);
 }
 
 .bg-LightCustom {
@@ -136,7 +142,8 @@ body {
 
 .divKeepShopping:hover a,
 .divCheckout:hover a {
-  transform: translateY(-10px);
+  /* transform: translateY(-10px); */
+  /* transform: scale(1.05); */
 }
 
 /* Custom Classes - END */
