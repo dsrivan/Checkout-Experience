@@ -285,7 +285,7 @@ function fnUpdateSubTotPrice() {
 
 /********************* TO UPDATE THE TOTAL ORDER - BEGIN *********************/
 function fnUpdateTotalPrice() {
-    const tdSubTot = fnQuerySelectorAll('.tdSubTot span');
+    const tdSubTot = fnQuerySelectorAll('.tdSubTot');
     let total = 0;
 
     tdSubTot.forEach((td) => {
@@ -293,7 +293,7 @@ function fnUpdateTotalPrice() {
     });
 
     /* INSERT THE NEW VALUE ON TOTAL ORDER */
-    fnQuerySelector('.tdTotal span').innerHTML = total.toFixed(2);
+    fnQuerySelector('.tdTotal').innerHTML = total.toFixed(2);
 
     /* INSERT THE NEW VALUE ON PAYMENT INFORMATION SECTION */
     fnQuerySelector('.PaymentInfosValue').innerHTML = `- ($ ${total.toFixed(2)})`;
@@ -332,7 +332,7 @@ function fnRemoveProduct(id) {
 /********************* TO REMOVE A PRODUCT FROM LIST - END *********************/
 function fnCheckQuantityProducts() {
 
-    if (parseFloat(fnQuerySelector('.tdTotal span').innerHTML) == 0) {
+    if (parseFloat(fnQuerySelector('.tdTotal').innerHTML) == 0) {
         let divKeepShopping = fnQuerySelector('.divKeepShopping');
         let divCheckout = fnQuerySelector('.divCheckout');
 
@@ -365,7 +365,7 @@ function fnUpdateInstallment() {
     let installment = fnQuerySelector('#Installment');
     installment.innerHTML = "";
 
-    let totalValue = fnQuerySelector('.tdTotal span').innerHTML.trim();
+    let totalValue = fnQuerySelector('.tdTotal').innerHTML.trim();
 
     var elem = document.createElement('option');
     elem.value = 0;

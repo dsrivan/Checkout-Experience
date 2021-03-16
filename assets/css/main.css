@@ -139,11 +139,19 @@ body {
   background-color: #2B2C2F;
   background: linear-gradient(to right, #868886, #2B2C2F);
 }
-
+/* 
 .divKeepShopping:hover a,
 .divCheckout:hover a {
-  /* transform: translateY(-10px); */
-  /* transform: scale(1.05); */
+  transform: translateY(-10px);
+  transform: scale(1.05); 
+}*/
+
+.fs-08 {
+  font-size: .8rem;
+}
+
+.fs-09 {
+  font-size: .9rem;
 }
 
 /* Custom Classes - END */
