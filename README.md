@@ -32,11 +32,11 @@ _Validations and animation when cleaning the cart_
 _Manipulate the quantity and update the order subtotal_
 
 ### Demo: 'Order Above $ 10'
-![Demo: 'OrderAbove10_'](assets/img/demo/OrderAbove10_.gif)
+![Demo: 'OrderAbove10_'](assets/img/demo/OrderAbove10.gif)
 _Installment payment when order above $ 10_
 
 ### Demo: 'Order Under $ 10'
-![Demo: 'OrderUnder10_'](assets/img/demo/OrderUnder10_.gif)
+![Demo: 'OrderUnder10_'](assets/img/demo/OrderUnder10.gif)
 _Installment payment when order under $ 10_
 
 ### Demo: 'To Top Button'
