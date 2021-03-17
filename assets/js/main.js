@@ -314,7 +314,8 @@ function fnUpdateTotalPrice() {
     total = (total - parseFloat(valueTdCouponDiscount));
 
     /* INSERT THE NEW VALUE ON TOTAL ORDER */
-    fnQuerySelector('.tdTotal').innerHTML = total.toFixed(2);
+    fnQuerySelector('.tdTotal').innerHTML = total.toFixed(2); //ivan
+    fnQuerySelector('.tdTotal').innerHTML = (parseFloat(total + parseFloat(fnQuerySelector('.tdShipping').innerHTML.trim()))).toFixed(2);
 
     /* INSERT THE NEW VALUE ON PAYMENT INFORMATION SECTION */
     fnQuerySelector('.PaymentInfosValue').innerHTML = `- ($ ${total.toFixed(2)})`;
