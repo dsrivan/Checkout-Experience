@@ -48,7 +48,7 @@ _Manipulations for 'to top' button_
 _Making Payment Action_
 
 ### Demo: 'Discounts Coupon'
-![Demo: 'CouponDicount'](assets/img/demo/CouponDicount.gif)
+![Demo: 'CouponDicount'](assets/img/demo/CouponDiscount.gif)
 _Applying Discounts Coupon_
 
 ### Demo: 'MobileVersion'
