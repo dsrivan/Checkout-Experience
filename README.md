@@ -32,16 +32,24 @@ _Validations and animation when cleaning the cart_
 _Manipulate the quantity and update the order subtotal_
 
 ### Demo: 'Order Above $ 10'
-![Demo: 'OrderAbove10$'](assets/img/demo/OrderAbove10$.gif)
+![Demo: 'OrderAbove10_'](assets/img/demo/OrderAbove10_.gif)
 _Installment payment when order above $ 10_
 
 ### Demo: 'Order Under $ 10'
-![Demo: 'OrderUnder10$'](assets/img/demo/OrderUnder10$.gif)
+![Demo: 'OrderUnder10_'](assets/img/demo/OrderUnder10_.gif)
 _Installment payment when order under $ 10_
 
 ### Demo: 'To Top Button'
 ![Demo: 'ManageToTopButton'](assets/img/demo/ManageToTopButton.gif)
 _Manipulations for 'to top' button_
+
+### Demo: 'Making Payment'
+![Demo: 'MakingPayment'](assets/img/demo/MakingPayment.gif)
+_Making Payment Action_
+
+### Demo: 'Discounts Coupon'
+![Demo: 'CouponDicount'](assets/img/demo/CouponDicount.gif)
+_Applying Discounts Coupon_
 
 ### Demo: 'MobileVersion'
 ![Demo: 'MobileVersion'](assets/img/demo/MobileVersion.gif)
