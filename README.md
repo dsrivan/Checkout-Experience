@@ -2,7 +2,7 @@
 
 ## _Checkout stage experience_
 &nbsp;
-##### _* Scroll the page for demonstrations *_
+##### _* Scroll for demonstrations *_
 &nbsp;
 ### Description
 

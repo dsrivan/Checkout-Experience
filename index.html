@@ -16,7 +16,7 @@
     <!-- MAIN CSS  -->
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body class="position-relative h-100">
+<body class="position-relative h-100 bg-LightCustom1">
 
     <!-- 'LOADING' SECTION (FULL SCREEN) - BEGIN -->
     <section class="sectionLoading d-none position-absolute">
@@ -49,11 +49,11 @@
     <main>
 
         <!-- BREADCRUMBS SECTION - BEGIN -->
-        <section>
-            <div class="container">
-                <div class="row my-4 bg-LightCustom1 ">
+        <section class="sectionBreadcrumb">
+            <div class="container bg-light border border rounded-3 mt-4 py-4 px-5">
+                <div class="row">
                     <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb m-0 py-2">
+                        <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item">
                                 <a onclick="fnReloadPage();" href="#">
                                     Home
@@ -70,9 +70,9 @@
         <!-- BREADCRUMBS SECTION - END -->
 
         <!-- ORDER DETAILS SECTION - BEGIN  -->
-        <section class="sectionOrderDetails pt-3 pt-md-5 pb-0 pb-md-4">
-            <div class="container">
-                <div class="row">
+        <section class="sectionOrderDetails mt-2 pt-md-4">
+            <div class="container bg-light border border rounded-3 p-3 p-md-5">
+                <div class="row d-none">
                     <div class="col-12 mb-3 mb-md-5">
                         <h3>
                             Checkout Experience
@@ -81,11 +81,11 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <h4 class="mb-4">
+                        <h4 class="mb-5 text-center">
                             Order details
                         </h4>
                         <div class="table-responsive">
-                            <table class="table table-hover">
+                            <table class="table /*table-hover*/">
                                 <thead>
                                     <tr class="text-uppercase">
                                         <th scope="col">Description</th>
@@ -100,9 +100,9 @@
                                                 <span class="me-3">
                                                     <img src="assets/img/camiseta.png" width="45" height="45" alt="IMG">
                                                 </span>
-                                                <i onclick="fnRemoveProduct(1); fnUpdateSubTotPrice(); fnCheckQuantityProducts();" class="fas fa-trash fa-1x cursor-pointer btn-outline-dark p-2 me-3 rounded-1"></i>
+                                                <i onclick="fnRemoveProduct(1);" class="fas fa-trash fa-1x cursor-pointer btn-outline-dark p-2 me-3 rounded-1"></i>
                                                 <div class="d-inline-block">
-                                                    <span>
+                                                    <span class="titleProduct">
                                                         Product Name One
                                                     </span>
                                                     <span class="text-muted d-block fs-08 fst-italic">
@@ -111,13 +111,19 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="tdQty_1">
-                                            <div class="d-flex align-items-center">
-                                                <i onclick="fnItemDecrease(this);" class="fas fa-chevron-down btn-outline-secondary p-1 rounded-1 cursor-pointer me-1 fs-09"></i>
-                                                <span class="inputQty_1 p-2">
-                                                    3
-                                                </span>
-                                                <i onclick="fnItemIncrease(this);" class="fas fa-chevron-up btn-outline-secondary p-1 rounded-1 cursor-pointer ms-1 fs-09"></i>
+                                        <td class="tdQty_1 align-middle">
+                                            <div class="d-flex justify-content-between align-items-center border rounded-1 w100px">
+                                                <div>
+                                                    <i onclick="fnItemDecrease(this);" class="fas fa-chevron-down btn-outline-secondary p-2 me-1 rounded-1 cursor-pointer fs-08"></i>
+                                                </div>
+                                                <div>
+                                                    <span class="inputQty_1 py-2">
+                                                        100
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <i onclick="fnItemIncrease(this);" class="fas fa-chevron-up btn-outline-secondary p-2 ms-1 rounded-1 cursor-pointer fs-08"></i>
+                                                </div>
                                             </div>
                                         </td>
                                         <td class="align-middle">
@@ -130,9 +136,9 @@
                                                 <span class="me-3">
                                                     <img src="assets/img/calca.png" width="45" height="45" alt="IMG">
                                                 </span>
-                                                <i onclick="fnRemoveProduct(2); fnUpdateSubTotPrice(); fnCheckQuantityProducts();" class="fas fa-trash fa-1x cursor-pointer btn-outline-dark p-2 me-3 rounded-1"></i>
+                                                <i onclick="fnRemoveProduct(2);" class="fas fa-trash fa-1x cursor-pointer btn-outline-dark p-2 me-3 rounded-1"></i>
                                                 <div class="d-inline-block">
-                                                    <span>
+                                                    <span class="titleProduct">
                                                         Product Name Two
                                                     </span>
                                                     <span class="text-muted d-block fs-08 fst-italic">
@@ -142,12 +148,18 @@
                                             </div>                                                
                                         </td>
                                         <td class="tdQty_2 align-middle">
-                                            <div class="d-flex align-items-center">
-                                                <i onclick="fnItemDecrease(this);" class="fas fa-chevron-down btn-outline-secondary p-1 rounded-1 cursor-pointer me-1 fs-09"></i>
-                                                <span class="inputQty_2 p-2">
-                                                    1
-                                                </span>
-                                                <i onclick="fnItemIncrease(this);" class="fas fa-chevron-up btn-outline-secondary p-1 rounded-1 cursor-pointer ms-1 fs-09"></i>
+                                            <div class="d-flex justify-content-between align-items-center border rounded-1 w100px">
+                                                <div>
+                                                    <i onclick="fnItemDecrease(this);" class="fas fa-chevron-down btn-outline-secondary p-2 me-1 rounded-1 cursor-pointer fs-08"></i>
+                                                </div>
+                                                <div>
+                                                    <span class="inputQty_2 py-2">
+                                                        1
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <i onclick="fnItemIncrease(this);" class="fas fa-chevron-up btn-outline-secondary p-2 ms-1 rounded-1 cursor-pointer fs-08"></i>
+                                                </div>
                                             </div>
                                         </td>
                                         <td class="align-middle">
@@ -160,9 +172,9 @@
                                                 <span class="me-3">
                                                     <img src="assets/img/bone.png" width="45" height="45" alt="IMG">
                                                 </span>
-                                                <i onclick="fnRemoveProduct(3); fnUpdateSubTotPrice(); fnCheckQuantityProducts();" class="fas fa-trash fa-1x cursor-pointer btn-outline-dark p-2 me-3 rounded-1"></i>
+                                                <i onclick="fnRemoveProduct(3);" class="fas fa-trash fa-1x cursor-pointer btn-outline-dark p-2 me-3 rounded-1"></i>
                                                 <div class="d-inline-block">
-                                                    <span>
+                                                    <span class="titleProduct">
                                                         Product Name Three
                                                     </span>
                                                     <span class=" text-muted d-block fs-08 fst-italic">
@@ -172,12 +184,18 @@
                                             </div>
                                         </td>
                                         <td class="tdQty_3 align-middle">
-                                            <div class="d-flex align-items-center">
-                                                <i onclick="fnItemDecrease(this);" class="fas fa-chevron-down btn-outline-secondary p-1 rounded-1 cursor-pointer me-1 fs-09"></i>
-                                                <span class="inputQty_3 p-2">
-                                                    3
-                                                </span>
-                                                <i onclick="fnItemIncrease(this);" class="fas fa-chevron-up btn-outline-secondary p-1 rounded-1 cursor-pointer ms-1 fs-09"></i>
+                                            <div class="d-flex justify-content-between align-items-center border p-0 rounded-1 w100px">
+                                                <div>
+                                                    <i onclick="fnItemDecrease(this);" class="fas fa-chevron-down btn-outline-secondary p-2 me-1 rounded-1 cursor-pointer fs-08"></i>
+                                                </div>
+                                                <div>
+                                                    <span class="inputQty_3 py-2">
+                                                        15
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <i onclick="fnItemIncrease(this);" class="fas fa-chevron-up btn-outline-secondary p-2 ms-1 rounded-1 cursor-pointer fs-08"></i>
+                                                </div>
                                             </div>
                                         </td>
                                         <td class="align-middle">
@@ -185,7 +203,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                                <tfoot class="text-uppercase bg-secondary text-light">
+                                <tfoot class="text-uppercase bg-secondary text-light d-none">
                                     <tr class="fw-bold fs-6">
                                         <td colspan="2" class="align-middle py-3">
                                             <span>
@@ -194,7 +212,7 @@
                                         </td>
                                         <td class="align-middle py-3">
                                             $ 
-                                            <span class="ms-1 tdTotal">
+                                            <span class="ms-1 tdTotal-old">
                                                 0.00
                                             </span>
                                         </td>
@@ -206,22 +224,103 @@
                 </div>
             </div>
         </section>
-        <!-- ORDER DETAILS SECTION - END  -->
+        <!-- ORDER DETAILS SECTION - END -->
+        
+        
+        <!-- ORDER INFO COUPON AND SHIPPING SECTION - BEGIN -->
+        <section class="couponTotals" class="mt-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6 col-md-6 mb-5 ps-0 pe-2">
+                        <div class="bg-light border border rounded-3 p-4">
+                            <p class="fw-bold">
+                                COUPON
+                            </p>
+                            <form>
+                                <div class="row align-items-end">
+                                    <div class="col-12 col-md-8 mb-2">
+                                        <label for="coupon" class="form-label">
+                                            Insert the coupon
+                                        </label>
+                                        <input type="text" class="form-control" id="coupon" placeholder="cp10off">
+                                    </div>
+                                    <div class="col-12 col-md-4 mb-2">
+                                        <button class="btnCoupon btn btn-primary w-100" type="button" onclick="fnApplyCoupon(); fnUpdateSubTotPrice();">
+                                            Apply
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-6 mb-5 ps-2 pe-0">
+                        <div class="bg-light border border rounded-3 p-4">
+                            <p class="fw-bold">
+                                TOTALS
+                            </p>
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td scope="col" class="text-start">SubTotal</td>
+                                        <td scope="col" class="text-end">
+                                            $ 
+                                            <span class="ms-1 tdSumSubTotals">
+                                                0.00
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col" class="text-start">Coupon</td>
+                                        <td scope="col" class="text-end">
+                                            $ 
+                                            <span class="ms-1 tdCouponDiscount">
+                                                0.00
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col" class="text-start">Shipping</td>
+                                        <td scope="col" class="text-end">
+                                            $ 
+                                            <span class="ms-1 tdShipping">
+                                                0.00
+                                            </span></td>
+                                    </tr>
+                                </tbody>
+                                <tfoot class="fw-bold fs-6">
+                                    <tr class="text-uppercase bg-dark text-light">
+                                        <td scope="col" class="text-start">Total</td>
+                                        <td scope="col" class="text-end">
+                                            $ 
+                                            <span class="ms-1 tdTotal">
+                                                0.00
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ORDER INFO COUPON AND SHIPPING SECTION - END -->
 
         <!-- MAIN BUTTONS SECTION - BEGIN -->
         <section class="sectionBtns transition02 mt-0 mb-5">
             <div class="container">
                 <div class="row transition05 justify-content-end">
                     <div class="divKeepShopping transition03 text-center col-6 p-2 my-3">
-                        <a href="#" onclick="fnReloadPage();" class="btnKeepShopping px-4 py-5 mb-4 transition02 border rounded-3 w-100 d-inline-block btn-outline-secondary text-decoration-none cursor-pointer">
+                        <a href="#" onclick="fnReloadPage();" class="btnKeepShopping px-4 py-5 mb-4 transition02 border border border rounded-3 w-100 d-inline-block btn-secondary text-decoration-none cursor-pointer">
                             <i class="fas fa-long-arrow-alt-left me-2"></i>
                             <span class="me-2">
                                 Keep Shopping
                             </span>
                         </a>
                     </div>
-                    <div class="divCheckout transition03 text-center col-6 p-2 my-3">
-                        <a href="#sectionStage" onclick="fnChekout();" class="btnCheckout transition02 px-4 py-4 py-5 rounded-3 w-100 d-inline-block btn-primary text-light text-decoration-none cursor-pointer">
+                    <div id="divCheckout" class="divCheckout transition03 text-center col-6 p-2 my-3">
+                        <a href="#divCheckout" onclick="fnChekout();" class="btnCheckout transition02 px-4 py-4 py-5 border border rounded-3 w-100 d-inline-block btn-primary text-light text-decoration-none cursor-pointer">
                             <span class="me-2">
                                 Go to Checkout
                             </span>
@@ -234,9 +333,9 @@
         <!-- MAIN BUTTONS SECTION - END -->
 
         <!-- STAGES SECTION - BEGIN -->
-        <section id="sectionStage" class="sectionStage transition02 d-none opacity-0 mb-5 mt-2">
+        <section class="sectionStage transition02 d-none opacity-0 mb-5 mt-2">
             <div class="container text-center">
-                <div class="row">
+                <div id="divSectionStage" class="row bg-light border rounded-3 py-4">
                     <div id="PaymentMethod" class="col-6 d-flex justify-content-center align-items-center" title="Step Concluded">
                         <span class="spanBadgePaymentMethod badge bg-secondary me-2">
                             1
@@ -244,7 +343,7 @@
                         <span class="spanBadgePaymentMethodCheck wh22px badge bg-success me-2 d-none d-flex justify-content-center align-items-center">                           
                             <i class="fas fa-check text-light"></i>
                         </span>
-                        <span id="sectionStage">
+                        <span>
                             Choose a payment method
                         </span>
                     </div>
@@ -267,12 +366,12 @@
         <!-- PAYMENT METHODS SECTION - BEGIN -->
         <section id="sectionPaymentMethods" class="sectionPaymentMethods transition02 d-none opacity-0 mb-6">
             <div class="container">
-                <div class="row position-relative mb-5">
+                <div class="row bg-light border rounded-3 position-relative mb-5 px-3 py-5">
                     <div class="paymentOption fw-bold col-12 col-md-6 my-3">
-                        <a id="CreditCard" href="#sectionStage" data-PaymentMethod="CreditCard" class="p-3 border border-2 rounded-15 d-inline-block w-100 text-decoration-none cursor-pointer" onclick="fnPaymentOptionChosen(this);">
+                        <a id="CreditCard" href="#divSectionStage" data-PaymentMethod="CreditCard" class="p-3 border border-2 rounded-15 d-inline-block w-100 text-decoration-none cursor-pointer" onclick="fnPaymentOptionChosen(this);">
                             <div class="my-4 d-flex align-items-center position-relative overflow-hidden">
                                 <div class="ms-5 me-3">
-                                    <i class="paymentIcon far fa-credit-card fa-2x text-primary p-3 rounded-3 bg-primaryCustom"></i>
+                                    <i class="paymentIcon far fa-credit-card fa-2x text-primary p-3 border rounded-3 bg-primaryCustom"></i>
                                 </div>
                                 <div class="text-dark me-3">
                                     Credit card
@@ -292,7 +391,7 @@
                         <a id="InternetBanking" data-PaymentMethod="InternetBanking" class="p-3 border border-2 rounded-15 d-inline-block w-100 text-decoration-none cursor-pointer" onclick="fnPaymentOptionChosen(this);">
                             <div class="my-4 d-flex align-items-center position-relative overflow-hidden">
                                 <div class="ms-5 me-3">
-                                    <i class="paymentIcon fas fa-university fa-2x text-primary p-3 rounded-3 bg-primaryCustom"></i>
+                                    <i class="paymentIcon fas fa-university fa-2x text-primary p-3 border rounded-3 bg-primaryCustom"></i>
                                 </div>
                                 <div class="text-dark">
                                     Internet banking
@@ -307,7 +406,7 @@
                         <a id="Paypal" data-PaymentMethod="Paypal" class="p-3 border border-2 rounded-15 d-inline-block w-100 text-decoration-none cursor-pointer" onclick="fnPaymentOptionChosen(this);">
                             <div class="my-4 d-flex align-items-center position-relative overflow-hidden">
                                 <div class="ms-5 me-3">
-                                    <i class="paymentIcon fab fa-paypal fa-2x text-primary p-3 rounded-3 bg-primaryCustom"></i>
+                                    <i class="paymentIcon fab fa-paypal fa-2x text-primary p-3 border rounded-3 bg-primaryCustom"></i>
                                 </div>
                                 <div class="text-dark">
                                     Paypal
@@ -322,7 +421,7 @@
                         <a id="BitcoinWallet" data-PaymentMethod="BitcoinWallet" class="p-3 border border-2 rounded-15 d-inline-block w-100 text-decoration-none cursor-pointer" onclick="fnPaymentOptionChosen(this);">
                             <div class="my-4 d-flex align-items-center position-relative overflow-hidden">
                                 <div class="ms-5 me-3">
-                                    <i class="paymentIcon fab fa-bitcoin fa-2x text-primary p-3 rounded-3 bg-primaryCustom"></i>
+                                    <i class="paymentIcon fab fa-bitcoin fa-2x text-primary p-3 border rounded-3 bg-primaryCustom"></i>
                                 </div>
                                 <div class="text-dark">
                                     Bitcoin wallet
@@ -340,8 +439,8 @@
 
         <!-- PAYMENT INFORMATIONS SECTION - BEGIN -->
         <section class="sectionPaymentInfos transition02 d-none opacity-0 mb-6">
-            <div class="container my-5">
-                <div class="row">
+            <div class="container border rounded-3 bg-light py-5">
+                <div class="row p-3">
                     <div class="col-12 text-center py-3 mt-2 mb-4 bg-primaryCustom text-primary">
                         Payment Method Selected: 
                         <span class="fw-bold">
@@ -357,8 +456,8 @@
                         <h4 id="AddressSection" class="mb-3 fw-bold text-primary">
                             Address
                         </h4>
-                        <form class="needs-validation" novalidate>
-                            <div class="row g-3">                
+                        <form>
+                            <div class="row g-3">
                                 <div class="col-12">
                                     <label for="fullName" class="form-label">
                                         Full name
@@ -502,10 +601,10 @@
         <!-- PAYMENT INFORMATIONS SECTION - END -->
 
         <!-- PAYMENT SUCCESS SECTION - BEGIN -->
-        <section class="sectionSuccessPayment transition02 heightAuto scale1 scale0 w-100 d-none d-flex justify-content-center pt-10p">
+        <section class="sectionSuccessPayment transition02 scale1 scale0 w-100 d-none overflow-hidden">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 text-dark text-center py-4">
+                    <div class="heightAuto text-dark text-center d-flex flex-column justify-content-center align-items-center">
                         <i class="fas fa-check text-success fa-3x mb-3"></i>
                         <h3>
                             Payment done!
@@ -524,11 +623,11 @@
     <!-- MAIN SECTION - END -->
 
     <!-- FOOTER SECTION - BEGIN -->
-    <footer class="py-4 bg-dark position-fixed w-100 bottom-0">
+    <footer class="py-4 bg-dark w-100 py-2">
         <div class="container">
             <div class="row">
-                <div class="text-center position-relative">
-                    <span class="text-muted text-center">
+                <div class="text-center position-relative text-uppercase">
+                    <span>
                         <a target="_blank" href="https://github.com/dsrivan">
                             Developed
                         </a>
@@ -536,12 +635,12 @@
                     <span class="text-light mx-2">
                         by
                     </span>
-                    <span class="text-muted text-center">
+                    <span>
                         <a target="_blank" href="https://www.linkedin.com/in/dsrivan/">
                             Ivan Rosa
                         </a>
                     </span>
-                    <a href="#" onclick="fnToTop();" class="aToTop position-fixed transition02 text-light bg-primary ps-3 pe-5 rounded-3 cursor-pointer text-decoration-none scale0">
+                    <a href="#" onclick="fnToTop();" class="aToTop position-fixed transition02 text-light bg-primary ps-3 pe-5 border rounded-3 cursor-pointer text-decoration-none scale0">
                         <i class="fas fa-long-arrow-alt-up py-2 px-2"></i>
                         To Top
                     </a>

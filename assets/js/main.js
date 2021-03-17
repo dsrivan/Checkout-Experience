@@ -34,7 +34,9 @@ let vElements = {
     spanBadgePaymentMethod: fnQuerySelector('.spanBadgePaymentMethod'),
     spanBadgePaymentMethodCheck: fnQuerySelector('.spanBadgePaymentMethodCheck'),
     spanBadgePaymentDetails: fnQuerySelector('.spanBadgePaymentDetails'),
-    spanBadgePaymentDetailsCheck: fnQuerySelector('.spanBadgePaymentDetailsCheck')
+    spanBadgePaymentDetailsCheck: fnQuerySelector('.spanBadgePaymentDetailsCheck'),
+    couponTotals: fnQuerySelector('.couponTotals'),
+    sectionBreadcrumb: fnQuerySelector('.sectionBreadcrumb')
 }
 /********************* OBJECT WITH ALL ELEMENTS - END *********************/
 
@@ -202,6 +204,14 @@ function fnToggleSectionSuccessPayment() {
     fnAddClass(vElements.sectionStage, 'd-none');
     fnAddClass(vElements.sectionStage, 'opacity-0');
 
+    /* TO HIDE THE 'SECTION COUPON/TOTALS' BLOCK BY APPLYING EFFECTS */
+    fnAddClass(vElements.couponTotals, 'd-none');
+    fnAddClass(vElements.couponTotals, 'opacity-0');
+
+    /* TO HIDE THE 'BREADCRUMB SECTION' BLOCK BY APPLYING EFFECTS */
+    fnAddClass(vElements.sectionBreadcrumb, 'd-none');
+    fnAddClass(vElements.sectionBreadcrumb, 'opacity-0');
+
     /* TO SHOW THE 'SUCCESS PAYMENT' BLOCK BY APPLYING EFFECTS */
     fnRemoveClass(vElements.sectionSuccessPayment, 'd-none');
     setTimeout(() => {
@@ -237,9 +247,9 @@ function fnToTop() {
 
 /********************* TO DECREASE ONE UNIT OF CURRENTLY PRODUCT - BEGIN *********************/
 function fnItemDecrease(elem) {
-    let targetInput = elem.nextElementSibling;
+    let targetInput = elem.parentNode.nextElementSibling.children[0];
     if (parseInt(targetInput.innerHTML.trim()) > 1) {
-        const newValue = parseFloat(targetInput.innerHTML.trim()) - 1;
+        let newValue = parseFloat(targetInput.innerHTML.trim()) - 1;
         targetInput.innerHTML = newValue;
 
         /* TO UPDATE THE SUBTOTAL PRICE */
@@ -251,9 +261,9 @@ function fnItemDecrease(elem) {
 
 /********************* TO INCREASE ONE UNIT OF CURRENTLY PRODUCT - BEGIN *********************/
 function fnItemIncrease(elem) {
-    let targetInput = elem.previousElementSibling;
+    let targetInput = elem.parentNode.previousElementSibling.children[0];
     if (parseInt(targetInput.innerHTML.trim()) >= 0 && parseInt(targetInput.innerHTML.trim()) < 100) {
-        const newValue = parseFloat(targetInput.innerHTML.trim()) + 1;
+        let newValue = parseFloat(targetInput.innerHTML.trim()) + 1;
         targetInput.innerHTML = newValue;
 
         /* TO UPDATE THE SUBTOTAL PRICE */
@@ -267,15 +277,15 @@ function fnItemIncrease(elem) {
 function fnUpdateSubTotPrice() {
     let productList = fnQuerySelectorAll('.trProd');
 
-    for (let i = 0; i < productList.length; i++) {
-        let tdUn = fnQuerySelector(".tdUn_" + (i + 1));
-        let inputQty = fnQuerySelector(".inputQty_" + (i + 1));
-        let tdSubTot = fnQuerySelector(".tdSubTot_" + (i + 1));
+    productList.forEach(product => {
+        let tdUn = product.children[0].children[0].children[2].children[1].children[0].innerHTML.trim();
+        let inputQty = product.children[1].children[0].children[1].children[0].innerHTML.trim();
+        let tdSubTot = product.children[2].children[0];
 
+        tdSubTot.innerHTML = (parseFloat(tdUn) * parseFloat(inputQty)).toFixed(2);
         if (tdUn != null && inputQty != null && tdSubTot != null) {
-            tdSubTot.innerHTML = (parseFloat(tdUn.innerHTML.trim()) * parseFloat(inputQty.innerHTML.trim())).toFixed(2);
         }
-    }
+    });
 
     /* TO UPDATE THE TOTAL ORDER */
     fnUpdateTotalPrice();
@@ -285,12 +295,23 @@ function fnUpdateSubTotPrice() {
 
 /********************* TO UPDATE THE TOTAL ORDER - BEGIN *********************/
 function fnUpdateTotalPrice() {
-    const tdSubTot = fnQuerySelectorAll('.tdSubTot');
+
+    let tdSubTot = fnQuerySelectorAll('.tdSubTot');
     let total = 0;
 
+    /* SUM TOTALS */
     tdSubTot.forEach((td) => {
         total += parseFloat(td.innerHTML.trim());
     });
+
+    /* INSERT THE NEW VALUE ON SUBTOTAL ORDER */
+    fnQuerySelector('.tdSumSubTotals').innerHTML = total.toFixed(2);
+
+    /* APPLY POSSIBLE COUPON */
+    fnApplyCoupon();
+
+    let valueTdCouponDiscount = parseFloat(fnQuerySelector('.tdCouponDiscount').innerHTML.trim());
+    total = (total - parseFloat(valueTdCouponDiscount));
 
     /* INSERT THE NEW VALUE ON TOTAL ORDER */
     fnQuerySelector('.tdTotal').innerHTML = total.toFixed(2);
@@ -303,6 +324,9 @@ function fnUpdateTotalPrice() {
 
     /* UPDATE THE INSTALLMENT */
     fnUpdateInstallment();
+
+    /*  */
+    fnCheckQuantityProducts();
 }
 /********************* TO UPDATE THE TOTAL ORDER - END *********************/
 
@@ -325,18 +349,24 @@ function onlyNumbers(e) {
 /********************* TO REMOVE A PRODUCT FROM LIST - BEGIN *********************/
 function fnRemoveProduct(id) {
     fnQuerySelector('.trProd_' + id).remove();
+
+    /* UPDATE EACH SUB PRICE */
+    fnUpdateSubTotPrice();
 }
 /********************* TO REMOVE A PRODUCT FROM LIST - END *********************/
 
 
-/********************* TO REMOVE A PRODUCT FROM LIST - END *********************/
+/********************* IF REMOVE ALL PRODUCTS FROM THE LIST - END *********************/
 function fnCheckQuantityProducts() {
 
-    if (parseFloat(fnQuerySelector('.tdTotal').innerHTML) == 0) {
+    if (parseFloat(fnQuerySelector('.tdSumSubTotals').innerHTML) == 0) {
         let divKeepShopping = fnQuerySelector('.divKeepShopping');
         let divCheckout = fnQuerySelector('.divCheckout');
 
         fnToTop();
+
+        /* TO ADD THE MARGIN BOTTOM */
+        fnAddClass(vElements.sectionBtns, 'mb-5');
 
         fnRemoveClass(divKeepShopping.parentNode, 'justify-content-end');
         fnRemoveClass(divCheckout, 'col-12');
@@ -355,7 +385,7 @@ function fnCheckQuantityProducts() {
         }, 500);
     }
 }
-/********************* TO REMOVE A PRODUCT FROM LIST - END *********************/
+/********************* IF REMOVE ALL PRODUCTS FROM THE LIST - END *********************/
 
 
 /********************* TO UPDATE THE INSTALLMENT - BEGIN *********************/
@@ -391,9 +421,37 @@ function fnUpdateInstallment() {
 /********************* TO UPDATE THE INSTALLMENT - END *********************/
 
 
+/********************* TO APPLY COUPONS - BEGIN *********************/
+function fnApplyCoupon() {
+    let inputCoupon = fnQuerySelector('#coupon');
+    let discount = 0;
+
+    if (inputCoupon.value !== '' || inputCoupon.value === 'cp10off') {
+        let SubTotal = fnQuerySelector('.tdSumSubTotals').innerHTML.trim();
+        discount = (parseFloat(SubTotal) * 0.1);
+    }
+
+    fnQuerySelector('.tdCouponDiscount').innerHTML = (discount).toFixed(2);
+
+    /* TO APPLY SHIPPING */
+    fnApplyShipping();
+}
+/********************* TO APPLY COUPONS - END *********************/
+
+
+/********************* TO APPLY SHIPPING - BEGIN *********************/
+function fnApplyShipping() {
+    let tdSumSubTotals = parseFloat(fnQuerySelector('.tdSumSubTotals').innerHTML.trim());
+
+    /* A FIXED VALUE FOR DEMONSTRATION ONLY */
+    fnQuerySelector('.tdShipping').innerHTML = (tdSumSubTotals === 0) ? (0).toFixed(2) : (4.99).toFixed(2);
+}
+/********************* TO APPLY COUPONS - END *********************/
+
+
 /********************* TO SHOW/HIDE TO TOP BUTTON - BEGIN *********************/
 function fnShowHideAToTop() {
-    if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
         fnRemoveClass(fnQuerySelector('.aToTop'), 'scale0');
     } else {
         fnAddClass(fnQuerySelector('.aToTop'), 'scale0');
