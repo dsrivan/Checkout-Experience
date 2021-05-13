@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
 /* General Colors - BEGIN */
 :root {
   --Primary: #0d6efd;
@@ -18,6 +20,7 @@ body {
   scroll-behavior: smooth;
   font-size: 14px;
   color: #141414;
+  font-family: "Popins", sans-serif;
 }
 /* General Configuration - END */
 
@@ -132,9 +135,9 @@ body {
 }
 
 .aToTop {
-  bottom: 20vh; 
+  bottom: 20vh;
   right: -95px;
-  opacity: .2;
+  opacity: 0.2;
 }
 
 .aToTop:hover {
@@ -143,12 +146,12 @@ body {
 }
 
 .bg-linearGradient1 {
-  background-color: #8BC6EC;
-  background-image: linear-gradient(135deg, #464FEE 0%, #74C3F7 100%)
+  background-color: #8bc6ec;
+  background-image: linear-gradient(135deg, #464fee 0%, #74c3f7 100%);
 }
 .bg-linearGradient2 {
-  background-color: #2B2C2F;
-  background: linear-gradient(to right, #868886, #2B2C2F);
+  background-color: #2b2c2f;
+  background: linear-gradient(to right, #868886, #2b2c2f);
 }
 /* 
 .divKeepShopping:hover a,
@@ -158,17 +161,18 @@ body {
 }*/
 
 .fs-08 {
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 .fs-09 {
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
 .titleProduct {
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: .8rem;
+  font-weight: 500;
+  color: #000;
+  /* text-transform: uppercase; */
+  font-size: 0.9rem;
 }
 
 /* Custom Classes - END */

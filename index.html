@@ -31,11 +31,11 @@
     
     <!-- HEADER SECTION (NAV) - BEGIN -->
     <header>
-        <nav class="navbar navbar-primary bg-primary">
-            <div class="container bg-primary">
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container bg-dark">
                 <a class="navbar-brand text-light" href="#">
                     <img src="assets/img/bootstrap-logo.svg" alt="" width="30" height="24">
-                    Bootstrap
+                    Store
                 </a>
                 <span class="text-light py-4">
                     Checkout Experience
@@ -105,7 +105,7 @@
                                                     <span class="titleProduct">
                                                         Product Name One
                                                     </span>
-                                                    <span class="text-muted d-block fs-08 fst-italic">
+                                                    <span class="text-muted d-block fs-08">
                                                         $ <span class="tdUn tdUn_1">1.99</span> /un
                                                     </span>
                                                 </div>
@@ -141,7 +141,7 @@
                                                     <span class="titleProduct">
                                                         Product Name Two
                                                     </span>
-                                                    <span class="text-muted d-block fs-08 fst-italic">
+                                                    <span class="text-muted d-block fs-08">
                                                         $ <span class="tdUn tdUn_2">9.99</span> /un
                                                     </span>
                                                 </div>
@@ -177,7 +177,7 @@
                                                     <span class="titleProduct">
                                                         Product Name Three
                                                     </span>
-                                                    <span class=" text-muted d-block fs-08 fst-italic">
+                                                    <span class=" text-muted d-block fs-08">
                                                         $ <span class="tdUn tdUn_3">4.49</span> /un
                                                     </span>
                                                 </div>
@@ -244,7 +244,7 @@
                                         <input type="text" class="form-control" id="coupon" placeholder="cp10off">
                                     </div>
                                     <div class="col-12 col-md-4 mb-2">
-                                        <button class="btnCoupon btn btn-primary w-100" type="button" onclick="fnApplyCoupon(); fnUpdateSubTotPrice();">
+                                        <button class="btnCoupon btn btn-dark w-100" type="button" onclick="fnApplyCoupon(); fnUpdateSubTotPrice();">
                                             Apply
                                         </button>
                                     </div>
@@ -311,7 +311,7 @@
             <div class="container">
                 <div class="row transition05 justify-content-end">
                     <div class="divKeepShopping transition03 text-center col-6 p-2 my-3">
-                        <a href="#" onclick="fnReloadPage();" class="btnKeepShopping px-4 py-5 mb-4 transition02 border border border rounded-3 w-100 d-inline-block btn-secondary text-decoration-none cursor-pointer">
+                        <a href="#" onclick="fnReloadPage();" class="btnKeepShopping px-4 py-5 mb-4 transition02 border border border rounded-3 w-100 d-inline-block btn-warning text-decoration-none cursor-pointer">
                             <i class="fas fa-long-arrow-alt-left me-2"></i>
                             <span class="me-2">
                                 Keep Shopping
@@ -319,7 +319,7 @@
                         </a>
                     </div>
                     <div id="divCheckout" class="divCheckout transition03 text-center col-6 p-2 my-3">
-                        <a href="#divCheckout" onclick="fnChekout();" class="btnCheckout transition02 px-4 py-4 py-5 border border rounded-3 w-100 d-inline-block btn-primary text-light text-decoration-none cursor-pointer">
+                        <a href="#divCheckout" onclick="fnChekout();" class="btnCheckout transition02 px-4 py-4 py-5 border border rounded-3 w-100 d-inline-block btn-dark text-light text-decoration-none cursor-pointer">
                             <span class="me-2">
                                 Place Order
                             </span>
@@ -625,23 +625,17 @@
     <footer class="py-4 bg-dark w-100 py-2">
         <div class="container">
             <div class="row">
-                <div class="text-center position-relative text-uppercase">
-                    <span>
-                        <a target="_blank" href="https://github.com/dsrivan">
-                            Developed
-                        </a>
-                    </span>
-                    <span class="text-light mx-2">
-                        by
-                    </span>
-                    <span>
+                <div class="text-center position-relative d-flex align-items-center justify-content-between text-light">
+                    <div>
+                        Ivan Rosa
+                    </div>
+                    <div>
+                        <a target="_blank" href="https://github.com/dsrivan"><i class="fab fa-github fa-2x ms-3 text-light"></i></a>
                         <a target="_blank" href="https://www.linkedin.com/in/dsrivan/">
-                            Ivan Rosa
+                            <i class="fab fa-linkedin fa-2x ms-3 text-light"></i>
                         </a>
-                    </span>
-                    <a href="#" onclick="fnToTop();" class="aToTop position-fixed transition02 text-light bg-primary ps-3 pe-5 border rounded-3 cursor-pointer text-decoration-none scale0">
-                        <i class="fas fa-long-arrow-alt-up py-2 px-2"></i>
-                        To Top
+                    </div>
+                    <a href="#" onclick="fnToTop();" class="aToTop position-fixed transition02 text-light bg-primary ps-3 pe-5 border rounded-3 cursor-pointer text-decoration-none scale0"><i class="fas fa-long-arrow-alt-up py-2 px-2"></i>To Top
                     </a>
                 </div>
             </div>
