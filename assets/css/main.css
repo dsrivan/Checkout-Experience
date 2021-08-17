@@ -49,6 +49,10 @@ body {
   background-color: var(--LightCustom);
 }
 
+.shadow-10 {
+  box-shadow: 10px 10px 10px lightgray;
+}
+
 .transition02 {
   transition: all 0.2s ease-in;
 }
