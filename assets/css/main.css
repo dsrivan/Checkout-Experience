@@ -33,6 +33,10 @@ body {
   cursor: pointer;
 }
 
+.bg-Violet-Pink {
+  background: linear-gradient(45deg, darkviolet, deeppink);
+}
+
 .bg-primaryCustom {
   background-color: var(--PrimaryCustom);
 }
