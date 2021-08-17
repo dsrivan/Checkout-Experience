@@ -16,7 +16,7 @@
     <!-- MAIN CSS  -->
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body class="position-relative h-100 bg-LightCustom1">
+<body class="position-relative h-100">
 
     <!-- 'LOADING' SECTION (FULL SCREEN) - BEGIN -->
     <section class="sectionLoading d-none position-absolute">
@@ -31,8 +31,8 @@
     
     <!-- HEADER SECTION (NAV) - BEGIN -->
     <header>
-        <nav class="navbar navbar-dark bg-dark">
-            <div class="container bg-dark">
+        <nav class="navbar bg-primary shadow-10">
+            <div class="container">
                 <a class="navbar-brand text-light" href="#">
                     <img src="assets/img/bootstrap-logo.svg" alt="" width="30" height="24">
                     Store
@@ -49,8 +49,8 @@
     <main>
 
         <!-- BREADCRUMBS SECTION - BEGIN -->
-        <section class="sectionBreadcrumb">
-            <div class="container bg-light border border rounded-3 mt-4 py-4 px-3 px-md-5">
+        <section class="sectionBreadcrumb bg-LightCustom1">
+            <div class="container mb-4 py-5">
                 <div class="row">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb m-0">
@@ -71,7 +71,7 @@
 
         <!-- ORDER DETAILS SECTION - BEGIN  -->
         <section class="sectionOrderDetails mt-2 pt-md-4">
-            <div class="container bg-light border border rounded-3 p-3 p-md-5">
+            <div class="container border border rounded-3 p-3 p-md-5">
                 <div class="row d-none">
                     <div class="col-12 mb-3 mb-md-5">
                         <h3>
@@ -231,7 +231,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-md-6 mb-4 ps-0 pe-0 pe-md-2">
-                        <div class="bg-light border border rounded-3 p-4">
+                        <div class="border border rounded-3 p-4">
                             <p class="fw-bold">
                                 COUPON
                             </p>
@@ -244,7 +244,7 @@
                                         <input type="text" class="form-control" id="coupon" placeholder="cp10off">
                                     </div>
                                     <div class="col-12 col-md-4 mb-2">
-                                        <button class="btnCoupon btn btn-dark w-100" type="button" onclick="fnApplyCoupon(); fnUpdateSubTotPrice();">
+                                        <button class="btnCoupon btn btn-primary w-100" type="button" onclick="fnApplyCoupon(); fnUpdateSubTotPrice();">
                                             Apply
                                         </button>
                                     </div>
@@ -253,7 +253,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-md-6 mb-4 ps-0 ps-md-2 pe-0">
-                        <div class="bg-light border border rounded-3 p-4">
+                        <div class="border border rounded-3 p-4">
                             <p class="fw-bold">
                                 TOTALS
                             </p>
@@ -287,7 +287,7 @@
                                     </tr>
                                 </tbody>
                                 <tfoot class="fw-bold fs-6">
-                                    <tr class="text-uppercase bg-dark text-light">
+                                    <tr class="text-uppercase bg-light">
                                         <td scope="col" class="text-start">Total</td>
                                         <td scope="col" class="text-end">
                                             $ 
@@ -311,7 +311,7 @@
             <div class="container">
                 <div class="row transition05 justify-content-end">
                     <div class="divKeepShopping transition03 text-center col-6 p-2 my-3">
-                        <a href="#" onclick="fnReloadPage();" class="btnKeepShopping px-4 py-5 mb-4 transition02 border border border rounded-3 w-100 d-inline-block btn-secondary text-decoration-none cursor-pointer">
+                        <a href="#" onclick="fnReloadPage();" class="btnKeepShopping px-4 py-5 mb-4 transition02 w-100 d-inline-block text-dark text-decoration-none cursor-pointer">
                             <i class="fas fa-long-arrow-alt-left me-2"></i>
                             <span class="me-2">
                                 Keep Shopping
@@ -319,7 +319,7 @@
                         </a>
                     </div>
                     <div id="divCheckout" class="divCheckout transition03 text-center col-6 p-2 my-3">
-                        <a href="#divCheckout" onclick="fnChekout();" class="btnCheckout transition02 px-4 py-4 py-5 border border rounded-3 w-100 d-inline-block btn-dark text-light text-decoration-none cursor-pointer">
+                        <a href="#divCheckout" onclick="fnChekout();" class="btnCheckout transition02 px-4 py-4 py-5 border rounded-3 w-100 d-inline-block btn bg-primary text-light text-decoration-none cursor-pointer">
                             <span class="me-2">
                                 Place Order
                             </span>
