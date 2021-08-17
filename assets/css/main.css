@@ -188,6 +188,10 @@ body {
   font-size: 1.3rem;
 }
 
+.navbar {
+  font-weight: bold;
+}
+
 /* Custom Classes - END */
 
 /* Animations - BEGIN */
