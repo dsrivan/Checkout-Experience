@@ -175,6 +175,11 @@ body {
   font-size: 0.9rem;
 }
 
+.btnCheckout,
+.btnKeepShopping {
+  font-size: 1.3rem;
+}
+
 /* Custom Classes - END */
 
 /* Animations - BEGIN */
