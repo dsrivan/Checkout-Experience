@@ -17,9 +17,6 @@ The intention of this development was to provide a good experience for the user,
 - [Bootstrap] - Version 5.0
 - [Font Awesome] - Version 5.15.2
 
-#### To run this project
-
-No have dependencies.
 
 ## Demonstrations
 
